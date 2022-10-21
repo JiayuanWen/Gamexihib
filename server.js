@@ -12,9 +12,11 @@ app.use(express.static('public'));
 
 //Home page '/'
 app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname+'/home.html'));
+    res.sendFile(__dirname+'/home.html');
 
+    console.log(__dirname+'/home.html');
     console.log("Cookies: ", req.cookies);
+    console.log("")
 });
 
 //Server listening
