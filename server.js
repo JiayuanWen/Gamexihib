@@ -2,6 +2,7 @@ var express      = require('express')
 var cookieParser = require('cookie-parser')
 var bodyParser = require('body-parser');
 var multer  = require('multer');
+var path = require('path');
 var fs = require("fs");
 
 var express = require('express');
@@ -11,7 +12,7 @@ app.use(express.static('public'));
 
 //Home page '/'
 app.get('/', function (req, res) {
-    res.send('Hello World');
+    res.sendFile(path.join(__dirname+'/home.html'));
 
     console.log("Cookies: ", req.cookies);
 });
