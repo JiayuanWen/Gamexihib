@@ -12,14 +12,17 @@ header {
     border-color: rgb(64, 152, 253);
 
 }
-header > ul{  
+header > div {
     display: inline-block;
+}
+#page-links > ul{  
+
 
     margin: 0px;
 
 }
-header > ul > a {
-    display: inline-block;
+#page-links > ul > a {
+
 
     font-size: 20px;
     font-family: Sans-serif;
@@ -34,8 +37,8 @@ header > ul > a {
 
     padding-top: 15px;
 }
-header > ul > a:hover {
-    display: inline-block;
+#page-links > ul > a:hover {
+
 
     font-size: 20px;
     font-family: Sans-serif;
@@ -53,9 +56,15 @@ header > ul > a:hover {
 
 #search-bar {
     display: inline-block;
+}
+#search-bar > form {
     padding-left: 20vw;
 }
-#search-bar > input{
+#search-bar > form > img {
+    padding-left: 1vw;
+    padding-top: 3px;
+}
+#search-bar > form > input{
     background-color: rgb(37, 37, 37);
 
     border-radius: 5px;
@@ -70,7 +79,7 @@ header > ul > a:hover {
     font-size: medium;
     font-family: Sans-serif;
 }
-#search-bar > input:focus {
+#search-bar > form> input:focus {
     background-color: rgb(37, 37, 37);
 
     border-radius: 5px;
@@ -88,7 +97,6 @@ header > ul > a:hover {
 }
 
 #sign-in {
-    display: inline-block;
     float: right;
 
     padding-top: 8px;

@@ -1,0 +1,99 @@
+body {
+    background-color: rgb(63, 63, 63);
+
+    color: rgb(255,255,255);
+
+    margin: 0px;
+}
+
+a {
+    color:rgb(220, 78, 255)
+}
+
+h1 {
+    font-family: Sans-serif;
+    font-weight: bold;
+    
+    display: flex;
+    margin-left: 41vw;
+}
+
+.page-content {
+    margin-top: 70px;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+#login-form {
+
+    margin-left: 37vw;
+}
+
+#login-button {
+    padding-left: 65px;
+}
+#login-button > button{
+    background-color: rgb(48, 47, 47);
+
+    border-radius: 5px;
+    border-style: solid;
+    border-color: rgb(255,255,255);
+
+    width: 80px;
+    height: 40px;
+
+    color: white;
+
+    font-size: medium;
+    font-family: Sans-serif;
+    font-weight: bold;
+
+    cursor:pointer;
+
+    margin-top: 30px;
+}
+#login-button > button:hover {
+    background-color: rgb(48, 47, 47);
+
+    border-radius: 5px;
+    border-style: solid;
+    border-color: rgb(64, 152, 253);
+
+    width: 80px;
+    height: 40px;
+
+    color: rgb(64, 152, 253);
+
+    font-size: medium;
+    font-family: Sans-serif;
+    font-weight: bold;
+
+    cursor:pointer;
+
+    margin-top: 30px;
+}
+
+.textbox {
+    background-color: rgb(37, 37, 37);
+
+    border-radius: 5px;
+    border-style: solid;
+    border-color: rgb(255,255,255);
+
+    width: 200px;
+    height: 35px;
+
+    color: white;
+
+    font-size: medium;
+    font-family: Sans-serif;
+}
+.textbox-label {
+    color: white;
+    
+    font-family: Sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+
+    margin-bottom: 3px;
+}

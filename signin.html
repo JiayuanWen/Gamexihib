@@ -3,40 +3,52 @@
     <head>
         <meta charset="UTF-8">
         <title>Home - Gamexihib</title>
-        <link rel="stylesheet" href="style/home.css">
+        <link rel="stylesheet" href="style/signin.css">
         <link rel="stylesheet" href="style/common/header.css">
         <link rel="stylesheet" href="style/common/footer.css">
     </head>
 
     <body>
         <header>
-            <a id="site-logo" href="home.html">LOGO Here</a>
-
-            <ul>
-                <a href="">Games</a>
-                <a href="">About</a>
-            </ul>
-
-            <form id="search-bar" method="get">
-                <input type="text" placeholder="Search for a game...">
-            </form>
-
-            <div id="sign-in">
-                <button onClick="">Sign In</button>
+            <div id="site-logo" >
+                <a href="home.html">LOGO Here</a>
             </div>
 
+            <div id="page-links">
+                <ul>
+                    <a href="">Games</a>
+                    <a href="">About</a>
+                </ul>
+            </div>
+            
+            <div id="search-bar">
+                <form method="get">
+                    <img src="https://imgs.search.brave.com/M1AxPgRh8AGIrOXvXx6nMxo_exlUQsLwsK0DBg59mf0/rs:fit:256:256:1/g:ce/aHR0cHM6Ly93d3cu/aWNvbnNkYi5jb20v/aWNvbnMvcHJldmll/dy93aGl0ZS9zZWFy/Y2gtMy14eGwucG5n" alt="search icon" width="30"/>
+                    <input type="text" placeholder="Search for a game..."/>
+                </form>
+            </div>
+            <div id="sign-in">
+                <button onClick="window.location.href='signin.html'">Sign In</button>
+            </div>
         </header>
+
+        <h1>Login in to Gamexhibit</h1>
         
         <div class="page-content">
-
             <form id="login-form" method="post">
-                <label for="uname"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
+                <div>
+                    <p class="textbox-label"><label for="uname"><b>Username</b></label></p>
+                    <input class="textbox" type="text" placeholder="Enter Username" name="uname" required>
+                </div>
 
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
+                <div>
+                    <p class="textbox-label"><labelfor="psw"><b>Password</b></label></p>
+                    <input class="textbox" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
 
-                <button type="submit">Login</button>
+                <div id="login-button">
+                    <button type="submit">Login</button>
+                </div>
                 <!--
                 <label>
                     <input type="checkbox" checked="checked" name="remember"> Remember me
