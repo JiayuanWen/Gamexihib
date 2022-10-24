@@ -27,6 +27,7 @@ h1 {
 #text-entry-1 {
     font-family: Sans-serif;
     font-weight: normal;
+    font-size: 19px;
     
     display: flex;
 }
