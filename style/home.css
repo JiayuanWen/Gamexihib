@@ -1,0 +1,35 @@
+body {
+    background-color: rgb(63, 63, 63);
+
+    color: rgb(255,255,255);
+
+    margin: 0px;
+}
+
+a {
+    color:rgb(220, 78, 255)
+}
+
+.page-content {
+    margin-top: 70px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.section-separator {
+    border-color: rgb(64, 152, 253);
+    border-width: 2px;
+    border-style: solid;
+
+    background-color: rgb(64, 152, 253);
+}
+
+.section-title {
+    margin: 0px;
+
+    font-size: 20px;
+    font-family: Sans-serif;
+    font-weight: bold;
+
+    color: rgb(255,255,255);
+}

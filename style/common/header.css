@@ -1,0 +1,131 @@
+header {
+    display: inline-block;
+    white-space: nowrap;
+
+    background-color: rgb(43, 43, 43);
+
+    width: 100vw;
+    height: 60px;
+
+    border-style: solid;
+    border-width: 0px 0px 2px 0px;
+    border-color: rgb(64, 152, 253);
+
+}
+header > ul{  
+    display: inline-block;
+
+    margin: 0px;
+
+}
+header > ul > a {
+    display: inline-block;
+
+    font-size: 20px;
+    font-family: Sans-serif;
+    font-weight: bold;
+
+    color: rgb(255,255,255);
+
+    text-decoration: none;
+
+    margin-left: 10px;
+    margin-right: 10px;
+
+    padding-top: 15px;
+}
+header > ul > a:hover {
+    display: inline-block;
+
+    font-size: 20px;
+    font-family: Sans-serif;
+    font-weight: bold;
+
+    color: rgb(64, 152, 253);
+
+    text-decoration: none;
+
+    margin-left: 10px;
+    margin-right: 10px;
+
+    padding-top: 15px;
+}
+
+#search-bar {
+    display: inline-block;
+    padding-left: 20vw;
+}
+#search-bar > input{
+    background-color: rgb(37, 37, 37);
+
+    border-radius: 5px;
+    border-style: solid;
+    border-color: rgb(255,255,255);
+
+    min-width: 400px;
+    min-height: 35px;
+
+    color: white;
+
+    font-size: medium;
+    font-family: Sans-serif;
+}
+#search-bar > input:focus {
+    background-color: rgb(37, 37, 37);
+
+    border-radius: 5px;
+    border-style: solid;
+    border-color: rgb(64, 152, 253);
+    outline-color: rgb(64, 152, 253);
+
+    min-width: 400px;
+    min-height: 35px;
+
+    color: white;
+
+    font-size: medium;
+    font-family: Sans-serif;
+}
+
+#sign-in {
+    display: inline-block;
+    float: right;
+
+    padding-top: 8px;
+}
+#sign-in > button {
+    background-color: rgb(48, 47, 47);
+
+    border-radius: 5px;
+    border-style: solid;
+    border-color: rgb(255,255,255);
+
+    min-width: 80px;
+    min-height: 40px;
+
+    color: white;
+
+    font-size: medium;
+    font-family: Sans-serif;
+    font-weight: bold;
+
+    cursor:pointer;
+}
+#sign-in > button:hover {
+    background-color: rgb(48, 47, 47);
+
+    border-radius: 5px;
+    border-style: solid;
+    border-color: rgb(64, 152, 253);
+
+    min-width: 80px;
+    min-height: 40px;
+
+    color: rgb(64, 152, 253);
+
+    font-size: medium;
+    font-family: Sans-serif;
+    font-weight: bold;
+
+    cursor:pointer;
+}
