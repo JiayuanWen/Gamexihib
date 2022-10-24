@@ -1,0 +1,32 @@
+body {
+    background-color: rgb(63, 63, 63);
+
+    color: rgb(255,255,255);
+
+    margin: 0px;
+}
+
+a {
+    color:rgb(220, 78, 255)
+}
+
+h1 {
+    font-family: Sans-serif;
+    font-weight: bold;
+    
+    display: flex;
+    margin-left: 41vw;
+}
+
+.page-content {
+    margin-top: 70px;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+#text-entry-1 {
+    font-family: Sans-serif;
+    font-weight: normal;
+    
+    display: flex;
+}
