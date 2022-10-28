@@ -6,12 +6,15 @@
         <link rel="stylesheet" href="style/signin.css">
         <link rel="stylesheet" href="style/common/header.css">
         <link rel="stylesheet" href="style/common/footer.css">
+
     </head>
 
     <body>
         <header>
             <div id="site-logo" >
-                <a href="home.html">LOGO Here</a>
+                <a href="home.html">
+                    <img src="image/gamelogo.png" width="60">
+                </a>
             </div>
 
             <div id="page-links">
@@ -20,7 +23,7 @@
                     <a href="about.html">About</a>
                 </ul>
             </div>
-            
+
             <div id="search-bar">
                 <form method="get">
                     <img src="https://imgs.search.brave.com/M1AxPgRh8AGIrOXvXx6nMxo_exlUQsLwsK0DBg59mf0/rs:fit:256:256:1/g:ce/aHR0cHM6Ly93d3cu/aWNvbnNkYi5jb20v/aWNvbnMvcHJldmll/dy93aGl0ZS9zZWFy/Y2gtMy14eGwucG5n" alt="search icon" width="30"/>
@@ -29,11 +32,13 @@
             </div>
             <div id="sign-in">
                 <button onClick="window.location.href='signin.html'">Sign In</button>
-            </div>
+
+                </div>
         </header>
 
+
         <h1>Login in to Gamexhibit</h1>
-        
+
         <div class="page-content">
             <form id="login-form" method="post">
                 <div>
@@ -49,13 +54,16 @@
                 <div id="login-button">
                     <button type="submit">Login</button>
                 </div>
+
                 <!--
                 <label>
                     <input type="checkbox" checked="checked" name="remember"> Remember me
                 </label>
                 -->
+
             </form>
         </div>
+
 
         <footer>
             <p id="copyright">Copyright © 2022</p>
