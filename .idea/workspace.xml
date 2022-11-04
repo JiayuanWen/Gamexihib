@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85a0be77-0bb1-4b09-bdb2-bcafa9f2ac6b" name="Default Changelist" comment="Added essential packages">
-      <change afterPath="$PROJECT_DIR$/LoginPage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/gamelogo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoginPage.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/signin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/signin.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/signin.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,14 +92,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "WebServerToolWindowFactoryState": "false",
-    "list.type.of.created.stylesheet": "CSS",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="X:\SWENG 465\Gamexihib" />
@@ -143,6 +143,7 @@
       <workItem from="1666032575397" duration="2282000" />
       <workItem from="1666354524468" duration="8815000" />
       <workItem from="1666959881308" duration="4869000" />
+      <workItem from="1667530334918" duration="5500000" />
     </task>
     <servers />
   </component>
