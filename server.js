@@ -15,32 +15,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 //User model ------------------------------------------
-//Credit: Arjun K S, Medium (https://medium.com/swlh/building-a-simple-web-application-with-node-express-mongodb-dcd53231e83c)
 const User = require('./DBmodels/user.js');
 const router = express.Router();
-const bcrypt = require('bcrypt');
-router.post('/user', (request, response) => {
-const user = new User({
-    userName : request.body.userName,
-    email : request.body.email,
-    password : request.body.password
-});
-bcrypt.hash(user.password, 10, function (err, hash){
-    if (err) {
-        console.log("[User model] Password encryption module failed");
-        console.log(err);
+const {register} = require("./auth.js");
 
-        return next(err);
-    }
-    user.password = hash;
-    user.save().then(data => {
-        console.log('[User model] New user successfully created');
-    }).catch(error => { //Codes in-case errors occured
-        console.log('[User model] New user creation failed');
-        console.log(error);
-    })
-})
-});
+router.route('/register').post(register);
+
 module.exports = router;
 
 //Mongo DB --------------------------------------------
