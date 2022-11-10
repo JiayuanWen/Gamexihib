@@ -27,13 +27,17 @@ const user = new User({
 });
 bcrypt.hash(user.password, 10, function (err, hash){
     if (err) {
+        console.log("[User model] Password encryption module failed");
+        console.log(err);
+
         return next(err);
     }
     user.password = hash;
     user.save().then(data => {
-        console.log('New user successfully created');
-    }).catch(error => {
-        // you can send an error code here
+        console.log('[User model] New user successfully created');
+    }).catch(error => { //Codes in-case errors occured
+        console.log('[User model] New user creation failed');
+        console.log(error);
     })
 })
 });
@@ -44,8 +48,13 @@ module.exports = router;
 
 //Connection test
 mongoose.connect('mongodb+srv://gamexhibi:ihatemtx@sweng465-gamexhibi.ijodktv.mongodb.net/?retryWrites=true&w=majority', (err) => {
-    if (err) {throw err;}
-    else {console.log('Successfully connected to Mongo DB');}
+    if (err) {
+        console.log('[MongoDB] Connection error:');
+        throw err;
+    }
+    else {
+        console.log('[MongoDB] Successfully connected to Mongo DB');
+    }
 });
 
 //Web endpoints ---------------------------------------
