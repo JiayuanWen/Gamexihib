@@ -12,13 +12,13 @@ exports.register = async (req, res, next) => {
             password,
         }).then(user =>
             res.status(200).json({
-                message: "[User model] User successfully created",
+                message: "[auth.js] User successfully created",
                 user
             })
         )
     } catch (err) {
         res.status(401).json({
-            message: "[User model] Failed to create user",
+            message: "[auth.js] Failed to create user",
             error: error.message
         })
     }
