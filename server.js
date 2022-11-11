@@ -21,7 +21,7 @@ const connectDB = require('./javascripts/mongodb.js');
 connectDB();
 
 //User Authentication middleware ----------------------
-app.use("/api/auth",require("./Auth/route"));
+app.use("/api/auth",require("./javascripts/Auth/route"));
 
 //Web endpoints ---------------------------------------
     //Home page '/'
