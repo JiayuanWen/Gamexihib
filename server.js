@@ -1,28 +1,46 @@
-var express      = require('express')
-var cookieParser = require('cookie-parser')
+var express = require('express');
+var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var multer  = require('multer');
 var path = require('path');
 var fs = require("fs");
 
-var express = require('express');
+//Express setup ---------------------------------------
 var app = express();
-
 app.use(express.static('public'));
 
-//Home page '/'
-app.get('/', function (req, res) {
-    res.sendFile(__dirname+'/home.html');
+//Body parser setup -----------------------------------
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
-    console.log(__dirname+'/home.html');
-    console.log("Cookies: ", req.cookies);
-    console.log("")
-});
+//User model ------------------------------------------
 
-//Server listening
-var serverJiayuanWen = app.listen(8081, function () {
-    var host = serverJiayuanWen.address().address;
-    var port = serverJiayuanWen.address().port;
 
-    console.log("Example app listening at http://%s:%s", host, port)
+//MongoDB ---------------------------------------------
+const connectDB = require('./javascripts/mongodb.js');
+connectDB();
+
+//User Authentication middleware ----------------------
+app.use("/api/auth",require("./javascripts/Auth/route"));
+
+//Web endpoints ---------------------------------------
+    //Home page '/'
+    app.get('/', function (req, res) {
+        res.sendFile(__dirname+'/home.html');
+
+        console.log('[Server] URL: '+__dirname+'/home.html');
+        console.log("[Cookies] ", req.cookies);
+    });
+
+    //Register page '/register'
+
+
+//Server listener -------------------------------------
+const PORT = 5000;
+app.listen(PORT,() =>
+    console.log(`[Server] running at localhost:${PORT}`)
+);
+process.on("unhandledRejection", err => {
+    console.log(`[Server] Erro: ${err.message}`);
+    server.close(() => process.exit(1));
 });
