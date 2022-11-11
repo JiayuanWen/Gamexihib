@@ -39,8 +39,8 @@ app.use("/api/auth",require("./Auth/route"));
 const PORT = 5000;
 app.listen(PORT,() =>
     console.log(`[Server] running at localhost:${PORT}`)
-    process.on("unhandledRejection", err => {
-        console.log(`[Server] Erro: ${err.message}`);
-        server.close(() => process.exit(1));
-    })
 );
+process.on("unhandledRejection", err => {
+    console.log(`[Server] Erro: ${err.message}`);
+    server.close(() => process.exit(1));
+});
