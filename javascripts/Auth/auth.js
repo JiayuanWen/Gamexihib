@@ -1,5 +1,6 @@
-const User = require('./DBmodels/user.js');
+const User = require('../DBmodels/user.js');
 
+//Register
 exports.register = async (req, res, next) => {
     const {username,password} = req.body;
     if (password.length < 5) {

@@ -16,20 +16,26 @@ app.use(bodyParser.json());
 //User model ------------------------------------------
 
 
-//Mongo DB --------------------------------------------
+//MongoDB ---------------------------------------------
+const connectDB = require('./javascripts/mongodb.js');
+connectDB();
 
+//User Authentication middleware ----------------------
+app.use("/api/auth",require("./Auth/route"));
 
 //Web endpoints ---------------------------------------
+    //Home page '/'
+    app.get('/', function (req, res) {
+        res.sendFile(__dirname+'/home.html');
 
-//Home page '/'
-app.get('/', function (req, res) {
-    res.sendFile(__dirname+'/home.html');
+        console.log('[Server] URL: '+__dirname+'/home.html');
+        console.log("[Cookies] ", req.cookies);
+    });
 
-    console.log('[Server] URL: '+__dirname+'/home.html');
-    console.log("[Cookies] ", req.cookies);
-});
+    //Register page '/register'
 
-//Server listener
+
+//Server listener -------------------------------------
 const PORT = 5000;
 app.listen(PORT,() =>
     console.log(`[Server] running at localhost:${PORT}`)
