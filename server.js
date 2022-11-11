@@ -31,4 +31,10 @@ app.get('/', function (req, res) {
 
 //Server listener
 const PORT = 5000;
-app.listen(PORT,() => console.log(`[Server] running at localhost:${PORT}`));
+app.listen(PORT,() =>
+    console.log(`[Server] running at localhost:${PORT}`)
+    process.on("unhandledRejection", err => {
+        console.log(`[Server] Erro: ${err.message}`);
+        server.close(() => process.exit(1));
+    })
+);
