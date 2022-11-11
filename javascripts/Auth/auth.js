@@ -53,3 +53,50 @@ exports.login = async (req, res, next) => {
         })
     }
 };
+
+//Update
+exports.update = async (req, res, next) => {
+    const {role, id} = req.body;
+    if (role && id) {
+
+        if (role === "Admin") {
+            await User.findById(id)
+                .then((user) => {
+                    if (user.role !== "Admin") {
+                        user.role = role;
+                        user.save((err) => {
+                            if (err) {
+                                res.status(400).json({
+                                    message: "An error occurred",
+                                    error: err.message
+                                });
+                                process.exit(1);
+                            }
+                            res.status(201).json({
+                                message: "User successfully updated",
+                                user
+                            })
+                        })
+                    } else {
+                        res.status(400).json ({
+                            message: "User is already an Admin"
+                        })
+                    }
+                })
+                .catch((err) => {
+                    res.status(400).json({
+                        message: "An error occurred",
+                        error: err.message
+                    })
+                })
+        } else {
+            res.status(400).json({
+                message: "User is not an admin"
+            })
+        }
+    } else {
+        res.status(400).json({
+            message: "Desired user is missing ID or Role"
+        })
+    }
+};
