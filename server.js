@@ -16,7 +16,7 @@ console.log(`[server.js] Set up Express complete`);
 //Body parser setup -----------------------------------
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-console.log(`[server.js] Set up b complete`);
+console.log(`[server.js] Set up body parser complete`);
 
 //User model ------------------------------------------
 
