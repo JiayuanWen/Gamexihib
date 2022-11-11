@@ -13,13 +13,13 @@ exports.register = async (req, res, next) => {
             email
         }).then(user =>
             res.status(200).json({
-                message: "[auth.js] User successfully created",
+                message: "User successfully created",
                 user
             })
         )
     } catch (err) {
         res.status(401).json({
-            message: "[auth.js] Failed to create user",
+            message: "Failed to create user",
             error: err.message
         })
     }
@@ -60,7 +60,6 @@ exports.login = async (req, res, next) => {
 exports.update = async (req, res, next) => {
     const {role, id} = req.body;
     if (role && id) {
-
         if (role === "Admin") {
             await User.findById(id)
                 .then((user) => {
