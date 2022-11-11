@@ -20,17 +20,6 @@ app.use(bodyParser.json());
 //Mongo DB --------------------------------------------
 
 
-//Connection test
-mongoose.connect('mongodb+srv://gamexhibi:ihatemtx@sweng465-gamexhibi.ijodktv.mongodb.net/?retryWrites=true&w=majority', (err) => {
-    if (err) {
-        console.log('[MongoDB] Connection error:');
-        throw err;
-    }
-    else {
-        console.log('[MongoDB] Successfully connected to Mongo DB');
-    }
-});
-
 //Web endpoints ---------------------------------------
 
 //Home page '/'
@@ -42,10 +31,6 @@ app.get('/', function (req, res) {
     console.log("")
 });
 
-//Server listening
-var serverJiayuanWen = app.listen(8081, function () {
-    var host = serverJiayuanWen.address().address;
-    var port = serverJiayuanWen.address().port;
-
-    console.log("Example app listening at http://%s:%s", host, port)
-});
+//Server listener
+const PORT = 5000;
+app.listen(PORT,() => console.log(`[Server] running at localhost:${PORT}`));
