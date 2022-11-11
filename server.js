@@ -4,7 +4,6 @@ var bodyParser = require('body-parser');
 var multer  = require('multer');
 var path = require('path');
 var fs = require("fs");
-const mongoose = require('mongoose');
 
 //Express setup ---------------------------------------
 var app = express();
@@ -26,9 +25,8 @@ app.use(bodyParser.json());
 app.get('/', function (req, res) {
     res.sendFile(__dirname+'/home.html');
 
-    console.log(__dirname+'/home.html');
-    console.log("Cookies: ", req.cookies);
-    console.log("")
+    console.log('[Server] URL: '+__dirname+'/home.html');
+    console.log("[Cookies] ", req.cookies);
 });
 
 //Server listener
