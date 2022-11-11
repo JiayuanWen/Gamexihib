@@ -1,0 +1,10 @@
+{
+  "name": "Gamexihib",
+  "version": "1.0.0",
+  "dependencies": {
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  }
+}
