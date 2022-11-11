@@ -7,6 +7,7 @@ var fs = require("fs");
 
 //Express setup ---------------------------------------
 var app = express();
+app.use(express.json());
 app.use(express.static('public'));
 
 //Body parser setup -----------------------------------
@@ -41,6 +42,6 @@ app.listen(PORT,() =>
     console.log(`[Server] running at localhost:${PORT}`)
 );
 process.on("unhandledRejection", err => {
-    console.log(`[Server] Erro: ${err.message}`);
+    console.log(`[Server] Error: ${err.message}`);
     server.close(() => process.exit(1));
 });
