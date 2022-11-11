@@ -19,7 +19,7 @@ exports.register = async (req, res, next) => {
     } catch (err) {
         res.status(401).json({
             message: "[auth.js] Failed to create user",
-            error: error.message
+            error: err.message
         })
     }
 };
