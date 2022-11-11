@@ -28,13 +28,15 @@ exports.register = async (req, res, next) => {
 //Login
 exports.login = async (req, res, next) => {
     const {username, password} = req.body;
+    /*
     if (!username || !password) {
         return res.status(400).json({
             message: "Username or Password field is blank"
         })
     }
+    */
     try {
-        const user = await User.findOne({username, password})
+        const user = await User.findOne({username, password});
         if (!user) {
             res.status(401).json({
                 message: "Login unsuccessful",
@@ -102,7 +104,7 @@ exports.update = async (req, res, next) => {
 };
 
 //Delete
-export.deleteUser = async (req,res,next) => {
+exports.deleteUser = async (req,res,next) => {
     const {id} = req.body;
     await User.findById(id)
         .then(user => user.remove())
