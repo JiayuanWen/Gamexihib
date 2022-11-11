@@ -15,13 +15,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 //User model ------------------------------------------
-const User = require('./DBmodels/user.js');
-const router = express.Router();
-const {register} = require("./auth.js");
 
-router.route('/register').post(register);
-
-module.exports = router;
 
 //Mongo DB --------------------------------------------
 
