@@ -9,9 +9,7 @@ body {
 h1 {
     font-family: Sans-serif;
     font-weight: bold;
-
     display: flex;
-    margin-left: 41vw;
 }
 
 .page-content {
@@ -98,3 +96,14 @@ h1 {
     background: #555;
 }
 
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+img {
+    max-width: 100%
+}
+.image {
+    flex-basis: 40%
+}
