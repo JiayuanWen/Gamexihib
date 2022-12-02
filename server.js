@@ -32,6 +32,9 @@ connectDB();
 //User Authentication middleware ----------------------
 app.use("/",require("./javascripts/Auth/route"));
 
+//Log separation
+console.log("---------------------------------------------------------------");
+
 //Web endpoints ---------------------------------------
     //Home page '/'
     var siteTitle = "Gamexhibit";
@@ -41,6 +44,7 @@ app.use("/",require("./javascripts/Auth/route"));
         console.log('[server.js] File: '+__dirname+'/home.ejs')
         console.log(`[server.js] Respond status code: ${res.statusCode}`);;
         console.log("[server.js] Cookies:", req.cookies);
+        console.log("---------------------------------------------------------------");
     });
 
     //Signin page '/signin'
@@ -50,6 +54,7 @@ app.use("/",require("./javascripts/Auth/route"));
         console.log('[server.js] File: '+__dirname+'/signin.ejs')
         console.log(`[server.js] Respond status code: ${res.statusCode}`);;
         console.log("[server.js] Cookies:", req.cookies);
+        console.log("---------------------------------------------------------------");
     });
 
     //Register page '/register'
@@ -59,9 +64,27 @@ app.use("/",require("./javascripts/Auth/route"));
         console.log('[server.js] File: '+__dirname+'/signup.ejs')
         console.log(`[server.js] Respond status code: ${res.statusCode}`);;
         console.log("[server.js] Cookies:", req.cookies);
+        console.log("---------------------------------------------------------------");
     });
 
+    //Game info page '/game'
+    app.get('/game', function (req, res) {
+        var gameID = req.query.id;
+        var title;
+        var desc;
+        const Game = require('./javascripts/DBmodels/game');
+        Game.findOne({gameID}, function(err, game) {
+            title = game.title;
+            desc = game.description;
+        })
 
+        res.render("game",{Title: `Game | ${siteTitle}`, gameTitle: `${title}`, gameDesc: `${desc}`});
+
+        console.log('[server.js] File: '+__dirname+'/game.ejs')
+        console.log(`[server.js] Respond status code: ${res.statusCode}`);
+        console.log("[server.js] Cookies:", req.cookies);
+        console.log("---------------------------------------------------------------");
+    });
 //Server listener -------------------------------------
 const PORT = 5000;
 app.listen(PORT,() =>

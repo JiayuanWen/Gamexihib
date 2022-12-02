@@ -5,6 +5,10 @@ const gameSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    year_release: {
+        type: Number,
+        required: true
+    },
     genre: [{
         type: String,
         required: true

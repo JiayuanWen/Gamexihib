@@ -6,13 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="85a0be77-0bb1-4b09-bdb2-bcafa9f2ac6b" name="Default Changelist" comment="modify sign in page and create series of game page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/footer.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/header.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/common/header.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/header.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javascripts/DBmodels/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascripts/DBmodels/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javascripts/Auth/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascripts/Auth/route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javascripts/DBmodels/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascripts/DBmodels/game.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style/signin.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/signin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/signin.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/signin.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +130,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/yuan/SeaGate4TB/Coding projects/Websites/Gamexihib/style",
+    "last_opened_file_path": "/home/yuan/SeaGate4TB/Coding projects/Websites/Gamexihib/views",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -145,16 +141,16 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/style" />
       <recent name="$PROJECT_DIR$/views" />
+      <recent name="$PROJECT_DIR$/style" />
       <recent name="X:\SWENG 465\Gamexihib" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/javascripts" />
       <recent name="$PROJECT_DIR$" />
       <recent name="X:\SWENG 465\Gamexihib\javascripts\Auth" />
       <recent name="X:\SWENG 465\Gamexihib\javascripts" />
       <recent name="$PROJECT_DIR$/image" />
-      <recent name="$PROJECT_DIR$/style" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.server.js">
@@ -203,7 +199,7 @@
       <workItem from="1668624068378" duration="2755000" />
       <workItem from="1669660198133" duration="2526000" />
       <workItem from="1669833471005" duration="2166000" />
-      <workItem from="1669962994319" duration="12710000" />
+      <workItem from="1669962994319" duration="15938000" />
     </task>
     <servers />
   </component>
@@ -274,18 +270,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="modify sign in page and create series of game page" />
     <option name="LAST_COMMIT_MESSAGE" value="modify sign in page and create series of game page" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/javascripts/Auth/route.js</url>
-          <line>5</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
