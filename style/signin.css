@@ -4,6 +4,7 @@ body {
     color: rgb(255,255,255);
 
     margin: 0px;
+    height: 100vh;
 }
 
 a {
@@ -15,20 +16,20 @@ h1 {
     font-weight: bold;
     
     display: flex;
-    margin-left: 41vw;
+    margin-left: 39%;
+    padding-top: 50px;
 }
 
-.page-content {
+.login-form {
     margin-top: 70px;
     margin-left: 150px;
     margin-right: 150px;
+    height: 80vh;
 }
-
 #login-form {
 
-    margin-left: 37vw;
+    margin-left: 41.5%;
 }
-
 #login-button {
     padding-left: 65px;
 }

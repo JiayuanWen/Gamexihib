@@ -1,7 +1,4 @@
 header {
-    display: inline-block;
-    white-space: nowrap;
-
     background-color: rgb(43, 43, 43);
 
     width: 100vw;
@@ -14,15 +11,17 @@ header {
 }
 header > div {
     display: inline-block;
+    vertical-align:top;
 }
-#page-links > ul{  
-
+#page-links {
+    padding-top: 20px;
+}
+#page-links > ul{
 
     margin: 0px;
 
 }
 #page-links > ul > a {
-
 
     font-size: 20px;
     font-family: Sans-serif;
@@ -34,11 +33,8 @@ header > div {
 
     margin-left: 10px;
     margin-right: 10px;
-
-    padding-top: 15px;
 }
 #page-links > ul > a:hover {
-
 
     font-size: 20px;
     font-family: Sans-serif;
@@ -55,14 +51,16 @@ header > div {
 }
 
 #search-bar {
-    display: inline-block;
+    padding-top: 10px;
 }
 #search-bar > form {
     padding-left: 20vw;
 }
 #search-bar > form > img {
-    padding-left: 1vw;
-    padding-top: 3px;
+    display: inline-block;
+    vertical-align:top;
+    padding-left: 15px;
+    padding-top: 6px;
 }
 #search-bar > form > input{
     background-color: rgb(37, 37, 37);
@@ -100,6 +98,7 @@ header > div {
     float: right;
 
     padding-top: 8px;
+    padding-right: 15px;
 }
 #sign-in > button {
     background-color: rgb(48, 47, 47);

@@ -10,7 +10,11 @@ console.log(`[server.js] Connecting to server...`);
 //Express setup ---------------------------------------
 var app = express();
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/'));
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
 console.log(`[server.js] Set up Express complete`);
 
 //Body parser setup -----------------------------------
@@ -30,11 +34,22 @@ app.use("/api/auth",require("./javascripts/Auth/route"));
 
 //Web endpoints ---------------------------------------
     //Home page '/'
+    var siteTitle = "Gamexhibit";
     app.get('/', function (req, res) {
-        res.sendFile(__dirname+'/home.html');
+        res.render("home",{Title: `Home | ${siteTitle}`});
 
-        console.log('[server.js] URL: '+__dirname+'/home.html');
-        console.log("[server.js] ", req.cookies);
+        console.log('[server.js] URL: '+__dirname+'/home.ejs')
+        console.log(`[server.js] Respond status code: ${res.statusCode}`);;
+        console.log("[server.js] Cookies:", req.cookies);
+    });
+
+    //Signin page '/signin'
+    app.get('/signin', function (req, res) {
+        res.render("signin",{Title: `Home | ${siteTitle}`});
+
+        console.log('[server.js] URL: '+__dirname+'/home.ejs')
+        console.log(`[server.js] Respond status code: ${res.statusCode}`);;
+        console.log("[server.js] Cookies:", req.cookies);
     });
 
     //Register page '/register'
