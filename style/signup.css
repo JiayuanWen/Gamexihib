@@ -16,11 +16,12 @@ h1 {
     font-weight: bold;
     
     display: flex;
-    margin-left: 39%;
+    margin-left: 36.5%;
+    margin-bottom: 50px;
     padding-top: 50px;
 }
 
-.login-form {
+.login-form-content {
     margin-top: 70px;
     margin-left: 150px;
     margin-right: 150px;
@@ -94,8 +95,7 @@ h1 {
     color: white;
 
     font-family: Sans-serif;
-    font-weight: bold;
-    font-size: 20px;
+    font-size: 17px;
 
     margin-bottom: 3px;
 }
@@ -105,7 +105,7 @@ h1 {
 
     font-family:  Sans-serif;
 
-    padding-left: 45.7%;
+    padding-left: 42%;
     padding-top: 150px;
 }
 

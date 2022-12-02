@@ -30,7 +30,7 @@ const connectDB = require('./javascripts/mongodb.js');
 connectDB();
 
 //User Authentication middleware ----------------------
-app.use("/api/auth",require("./javascripts/Auth/route"));
+app.use("/",require("./javascripts/Auth/route"));
 
 //Web endpoints ---------------------------------------
     //Home page '/'
@@ -38,21 +38,28 @@ app.use("/api/auth",require("./javascripts/Auth/route"));
     app.get('/', function (req, res) {
         res.render("home",{Title: `Home | ${siteTitle}`});
 
-        console.log('[server.js] URL: '+__dirname+'/home.ejs')
+        console.log('[server.js] File: '+__dirname+'/home.ejs')
         console.log(`[server.js] Respond status code: ${res.statusCode}`);;
         console.log("[server.js] Cookies:", req.cookies);
     });
 
     //Signin page '/signin'
-    app.get('/signin', function (req, res) {
-        res.render("signin",{Title: `Home | ${siteTitle}`});
+    app.get('/login', function (req, res) {
+        res.render("signin",{Title: `Signin | ${siteTitle}`});
 
-        console.log('[server.js] URL: '+__dirname+'/home.ejs')
+        console.log('[server.js] File: '+__dirname+'/signin.ejs')
         console.log(`[server.js] Respond status code: ${res.statusCode}`);;
         console.log("[server.js] Cookies:", req.cookies);
     });
 
     //Register page '/register'
+    app.get('/register', function (req, res) {
+        res.render("signup",{Title: `Register | ${siteTitle}`});
+
+        console.log('[server.js] File: '+__dirname+'/signup.ejs')
+        console.log(`[server.js] Respond status code: ${res.statusCode}`);;
+        console.log("[server.js] Cookies:", req.cookies);
+    });
 
 
 //Server listener -------------------------------------

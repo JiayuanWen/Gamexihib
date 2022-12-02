@@ -1,11 +1,9 @@
 <%- include('../common/header.ejs'); %>
 
-<link type="text/css" href="../style/signin.css" rel="stylesheet">
+<link type="text/css" href="../style/signup.css" rel="stylesheet">
 
-
-                <h1>Signin in to Gamexhibit</h1>
-
-                <div class="login-form">
+                <div class="login-form-content">
+                    <h1>Register for a Gamexhibit</h1>
                     <form id="login-form" method="post">
                         <div>
                             <p class="textbox-label"><label for="username"><b>Username</b></label></p>
@@ -13,12 +11,22 @@
                         </div>
 
                         <div>
+                            <p class="textbox-label"><label for="email"><b>Email</b></label></p>
+                            <input class="textbox" type="email" placeholder="Enter Email" name="email" required>
+                        </div>
+
+                        <div>
                             <p class="textbox-label"><label for="password"><b>Password</b></label></p>
                             <input class="textbox" type="password" placeholder="Enter Password" name="password" required>
                         </div>
 
+                        <div>
+                            <p class="textbox-label"><label for="passwordV"><b>Password Again</b></label></p>
+                            <input class="textbox" type="password" placeholder="Enter Password Again" name="passwordV" required>
+                        </div>
+
                         <div id="login-button">
-                            <button type="submit">Login</button>
+                            <button type="submit">Register</button>
                         </div>
                         <!--
                         <label>
@@ -27,9 +35,8 @@
                         -->
                     </form>
                     <div id="alternate-prompt">
-                        <a href="/register">New User?</a>
+                        <a href="/signin">Already have an account?</a>
                     </div>
                 </div>
-
 
 <%- include('../common/footer.ejs'); %>

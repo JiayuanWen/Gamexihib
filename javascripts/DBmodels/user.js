@@ -18,7 +18,7 @@ const userSchema = mongoose.Schema({
     },
     role: {
         type: String,
-        default: "Visitor", //Roles: Moderator, Admin, Visitor
+        default: "Visitor", //Roles: Moderator, Admin, Visitor, Developer
         required: true
     }
 });
