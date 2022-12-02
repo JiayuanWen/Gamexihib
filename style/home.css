@@ -33,3 +33,66 @@ a {
 
     color: rgb(255,255,255);
 }
+
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+.column {
+    float: top;
+    width: 33.33%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+
+
+/* Clearfix (clear floats) */
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+img {
+    max-width: 100%;
+}
+.image {
+    flex-basis: 40%
+}
+
+
+
+/*scroll bar */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
+

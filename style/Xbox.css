@@ -1,0 +1,98 @@
+body {
+    background-color: rgb(63, 63, 63);
+
+    color: rgb(255,255,255);
+
+    margin: 0px;
+}
+
+h1 {
+    font-family: Sans-serif;
+    font-weight: bold;
+
+    display: flex;
+    margin-left: 41vw;
+}
+
+.page-content {
+    margin-top: 70px;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+#text-entry-1 {
+    font-family: Sans-serif;
+    font-weight: normal;
+    font-size: 19px;
+    display: flex;
+}
+
+
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-size: 19px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 0px 16px;
+    background-color: inherit;
+    font-family: Sans-serif;
+    margin: 0;
+    font-weight: bold;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: rgb(64, 152, 253);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/*scroll bar */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
