@@ -100,6 +100,17 @@ h1 {
     margin-bottom: 3px;
 }
 
+#message-prompt {
+    color: white;
+
+    font-family:  Sans-serif;
+
+    text-align: center;
+
+    padding-right: 62px;
+    padding-top: 50px;
+}
+
 #alternate-prompt {
     color: white;
 
@@ -108,7 +119,6 @@ h1 {
     padding-left: 42%;
     padding-top: 150px;
 }
-
 #alternate-prompt > a {
     color: white;
     font-family:  Sans-serif;

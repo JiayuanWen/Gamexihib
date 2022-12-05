@@ -6,9 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="85a0be77-0bb1-4b09-bdb2-bcafa9f2ac6b" name="Default Changelist" comment="modify sign in page and create series of game page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javascripts/Auth/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascripts/Auth/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javascripts/Auth/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascripts/Auth/route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javascripts/DBmodels/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascripts/DBmodels/game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javascripts/Get/gameInfoGet.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/signin.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/signin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/signup.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/signup.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/signin.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/signin.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/signup.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/signup.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,18 +132,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/yuan/SeaGate4TB/Coding projects/Websites/Gamexihib/views",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/yuan/SeaGate4TB/Coding projects/Websites/Gamexihib/views&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/views" />
@@ -199,7 +204,9 @@
       <workItem from="1668624068378" duration="2755000" />
       <workItem from="1669660198133" duration="2526000" />
       <workItem from="1669833471005" duration="2166000" />
-      <workItem from="1669962994319" duration="15938000" />
+      <workItem from="1669962994319" duration="16274000" />
+      <workItem from="1670185705343" duration="7968000" />
+      <workItem from="1670209104685" duration="2740000" />
     </task>
     <servers />
   </component>
