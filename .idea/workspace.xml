@@ -8,10 +8,23 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javascripts/Auth/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascripts/Auth/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/passport/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/passport/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport/lib/authenticator.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/passport/lib/authenticator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport/lib/framework/connect.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/passport/lib/framework/connect.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport/lib/http/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/passport/lib/http/request.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport/lib/middleware/authenticate.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/passport/lib/middleware/authenticate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport/lib/middleware/initialize.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/passport/lib/middleware/initialize.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport/lib/sessionmanager.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/passport/lib/sessionmanager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport/lib/strategies/session.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/passport/lib/strategies/session.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/passport/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport/sponsors/loginradius.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport/sponsors/snyk.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport/sponsors/workos.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style/common/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/common/footer.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,7 +217,7 @@
       <workItem from="1669833471005" duration="2166000" />
       <workItem from="1669962994319" duration="16274000" />
       <workItem from="1670185705343" duration="7968000" />
-      <workItem from="1670209104685" duration="6314000" />
+      <workItem from="1670209104685" duration="10558000" />
     </task>
     <servers />
   </component>

@@ -13,6 +13,9 @@ var fs = require("fs");
 
 var session = require(`express-session`);
 var fileStore = require(`session-file-store`)(session);
+var passport = require(`passport`);
+const { v4: uuid } = require('uuid'); uuid(); //const uuid = require(`uuid/v4`);
+var LocalStrategy = require('passport-local').Strategy;
 
 console.log(`[server.js] Connecting to server...`);
 
@@ -38,8 +41,12 @@ connectDB();
 //User Authentication middleware ----------------------
 app.use("/",require("./javascripts/Auth/route"));
 
-/*
 //Session preserve-------------------------------------
+///*
+//Credit: Arjun K S, Medium.com
+//https://medium.com/swlh/building-a-simple-web-application-with-node-express-mongodb-dcd53231e83c
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(session({
     genid: (req) => {
         return uuid() // use UUIDs for session IDs
@@ -49,16 +56,19 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }))
-route.serializeUser((user, done) => {
+passport.serializeUser((user, done) => {
     done(null, user.id);
 });
 passport.deserializeUser(function(id, done) {
     User.findById(id, function(err, user) {
         loggedInUser = user;
+
+        isLogin = true;
         done(err, user);
     });
 });
- */
+
+//*/
 
 //Log separator
 console.log("---------------------------------------------------------------");

@@ -1,7 +1,12 @@
 let {siteTitle,isLogin,loginUser} = require(`../../globalVar.js`);
 
 const bcrypt = require(`bcryptjs`);
-const passport = require(`passport`);
+
+var session = require(`express-session`);
+var fileStore = require(`session-file-store`)(session);
+var passport = require(`passport`);
+const { v4: uuid } = require('uuid'); uuid(); //const uuid = require(`uuid/v4`);
+var LocalStrategy = require('passport-local').Strategy;
 
 // User
 const User = require('../DBmodels/user.js');
@@ -65,6 +70,7 @@ const User = require('../DBmodels/user.js');
 
     //User Login
     exports.login = async (req, res, next) => {
+
         const {username, password} = req.body;
         /*
         if (!username || !password) {
@@ -82,7 +88,7 @@ const User = require('../DBmodels/user.js');
                     error: "User does not exist"
                 })
                  */
-                res.status(401).render("signin",{Title: `Signin | ${siteTitle}`, Message: `Error: Username or Password is incorrect.`});
+                res.status(401).render("signin",{Title: `Signin | ${siteTitle}`, Message: `Error: User does not exist`});
             } else {
                 /*
                 res.status(200).json({
@@ -91,9 +97,9 @@ const User = require('../DBmodels/user.js');
                 })
                 */
                 bcrypt.compare(password,user.password).then(function (result) {
-                    isLogin = true;
-                    loginUser = user;
-                    res.status(200).redirect('/');
+                    result ?
+                    res.status(200).redirect('/')
+                    : res.status(401).render("signin",{Title: `Signin | ${siteTitle}`, Message: `Error: Username or Password is incorrect`});
                 })
 
             }
@@ -106,6 +112,14 @@ const User = require('../DBmodels/user.js');
             */
             res.status(401).render("signin",{Title: `Signin | ${siteTitle}`, Message: err.message});
         }
+    };
+
+    //User Logout
+    exports.logout = async (req, res, next) => {
+        req.logout(function(err) {
+            if (err) { return next(err); }
+            res.redirect('/');
+        });
     };
 
     //User Update
