@@ -7,13 +7,11 @@
     <list default="true" id="85a0be77-0bb1-4b09-bdb2-bcafa9f2ac6b" name="Default Changelist" comment="modify sign in page and create series of game page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javascripts/Auth/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascripts/Auth/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javascripts/Auth/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascripts/Auth/route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javascripts/Get/gameInfoGet.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style/signin.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/signin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style/signup.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/signup.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/signin.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/signin.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/signup.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/signup.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/common/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/common/footer.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,7 +204,7 @@
       <workItem from="1669833471005" duration="2166000" />
       <workItem from="1669962994319" duration="16274000" />
       <workItem from="1670185705343" duration="7968000" />
-      <workItem from="1670209104685" duration="2740000" />
+      <workItem from="1670209104685" duration="6314000" />
     </task>
     <servers />
   </component>

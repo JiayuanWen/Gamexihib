@@ -1,13 +1,18 @@
 //Global variables
-let {siteTitle,isLogin,loginUser} = require(`./globalVar.js`);
+let {siteTitle,isLogin} = require(`./globalVar.js`);
 
 //Essential modules
 var express = require('express');
+
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+
 var multer  = require('multer');
 var path = require('path');
 var fs = require("fs");
+
+var session = require(`express-session`);
+var fileStore = require(`session-file-store`)(session);
 
 console.log(`[server.js] Connecting to server...`);
 
@@ -33,8 +38,32 @@ connectDB();
 //User Authentication middleware ----------------------
 app.use("/",require("./javascripts/Auth/route"));
 
-//Log separation
+/*
+//Session preserve-------------------------------------
+app.use(session({
+    genid: (req) => {
+        return uuid() // use UUIDs for session IDs
+    },
+    store: new fileStore(),
+    secret: `any key is fine`,
+    resave: false,
+    saveUninitialized: true
+}))
+route.serializeUser((user, done) => {
+    done(null, user.id);
+});
+passport.deserializeUser(function(id, done) {
+    User.findById(id, function(err, user) {
+        loggedInUser = user;
+        done(err, user);
+    });
+});
+ */
+
+//Log separator
 console.log("---------------------------------------------------------------");
+
+
 
 //Web endpoints ---------------------------------------
     //Home page '/'
@@ -52,7 +81,7 @@ console.log("---------------------------------------------------------------");
         res.render("signin",{Title: `Signin | ${siteTitle}`, Message: ``});
 
         console.log('[server.js] File: '+__dirname+'/signin.ejs')
-        console.log(`[server.js] Respond status code: ${res.statusCode}`);;
+        console.log(`[server.js] Respond status code: ${res.statusCode}`);
         console.log("[server.js] Cookies:", req.cookies);
         console.log("---------------------------------------------------------------");
     });
@@ -63,7 +92,7 @@ console.log("---------------------------------------------------------------");
         res.render("signup",{Title: `Register | ${siteTitle}`, Message: ``});
 
         console.log('[server.js] File: '+__dirname+'/signup.ejs')
-        console.log(`[server.js] Respond status code: ${res.statusCode}`);;
+        console.log(`[server.js] Respond status code: ${res.statusCode}`);
         console.log("[server.js] Cookies:", req.cookies);
         console.log("---------------------------------------------------------------");
     });

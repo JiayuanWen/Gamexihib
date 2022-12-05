@@ -1,5 +1,8 @@
 let {siteTitle,isLogin,loginUser} = require(`../../globalVar.js`);
 
+const bcrypt = require(`bcryptjs`);
+const passport = require(`passport`);
+
 // User
 const User = require('../DBmodels/user.js');
 
@@ -13,29 +16,51 @@ const User = require('../DBmodels/user.js');
             return res.status(400).render("signup",{Title: `Register | ${siteTitle}`, Message: `Error: Password should be 5 characters or longer.`});
         }
 
-        try {
+        bcrypt.hash(password,10).then(async (hash) => {
             await User.create({
                 username,
-                password,
+                password: hash,
                 email
-            }).then(user =>
+            })
+                .then(user =>
                 /*
                 res.status(200).json({
                     message: "User successfully created",
                     user
                 })
                  */
+                res.status(200).render("signin",{Title: `Signin | ${siteTitle}`, Message: `Account has been successfully created, you can now login in.`})
+                )
+                .catch((err) =>
+                    res.status(401).render("signup",{Title: `Register | ${siteTitle}`, Message: err.message})
+                )
+        })
+        /*
+        try {
+
+            await User.create({
+                username,
+                password: hash,
+                email
+            }).then(user =>
+
+                res.status(200).json({
+                    message: "User successfully created",
+                    user
+                })
+
                 res.status(200).render("signin",{Title: `Register | ${siteTitle}`, Message: `Error: Account has been successfully created, try login in!`})
             )
         } catch (err) {
-            /*
+
             res.status(401).json({
                 message: "Failed to create user",
                 error: err.message
             })
-             */
+
             res.status(401).render("signin",{Title: `Signin | ${siteTitle}`, Message: err.message})
         }
+        */
     };
 
     //User Login
@@ -49,7 +74,7 @@ const User = require('../DBmodels/user.js');
         }
         */
         try {
-            const user = await User.findOne({username, password});
+            const user = await User.findOne({username});
             if (!user) {
                 /*
                 res.status(401).json({
@@ -65,15 +90,21 @@ const User = require('../DBmodels/user.js');
                     user
                 })
                 */
-                isLogin = true;
-                loginUser = user;
-                res.status(200).redirect('/');
+                bcrypt.compare(password,user.password).then(function (result) {
+                    isLogin = true;
+                    loginUser = user;
+                    res.status(200).redirect('/');
+                })
+
             }
         } catch (err) {
+            /*
             res.status(400).json({
                 message: "An error occured",
                 error: err.message
             })
+            */
+            res.status(401).render("signin",{Title: `Signin | ${siteTitle}`, Message: err.message});
         }
     };
 
