@@ -29,9 +29,13 @@
             <input type="text" placeholder="Search for a game..."/>
         </form>
     </div>
+
     <form id="sign-out" action="/logout" method="post">
         <button type="submit">Sign Out</button>
     </form>
 
+    <div id="username-display">
+        <a>Signed in as: <%= loginName %></a>
+    </div>
 
 </header>

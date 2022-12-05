@@ -76,7 +76,7 @@ console.log("---------------------------------------------------------------");
 //Web endpoints ---------------------------------------
     //Home page '/'
     app.get('/', function (req, res) {
-        res.render("home",{isLogin: global.isLogin,Title: `Home | ${global.siteTitle}`});
+        res.render("home",{isLogin: global.isLogin, Title: `Home | ${global.siteTitle}`, loginName: global.loginUser.username});
 
         console.log('[server.js] File: '+__dirname+'/home.ejs')
         console.log(`[server.js] Respond status code: ${res.statusCode}`);
