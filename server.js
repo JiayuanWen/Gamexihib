@@ -36,10 +36,8 @@ console.log(`[server.js] Set up body parser complete`);
 
 //MongoDB ---------------------------------------------
 const connectDB = require('./javascripts/mongodb.js');
+const Game = require("./javascripts/DBmodels/game");
 connectDB();
-
-//User Authentication middleware ----------------------
-app.use("/",require("./javascripts/Auth/route"));
 
 //Session preserve-------------------------------------
 ///*
@@ -65,8 +63,10 @@ passport.deserializeUser(function(id, done) {
         done(err, user);
     });
 });
-
 //*/
+
+//User Authentication middleware ----------------------
+app.use("/",require("./javascripts/Auth/route"));
 
 //Console Log separator
 console.log("---------------------------------------------------------------");
@@ -76,7 +76,7 @@ console.log("---------------------------------------------------------------");
 //Web endpoints ---------------------------------------
     //Home page '/'
     app.get('/', function (req, res) {
-        res.render("home",{isLogin: global.isLogin, Title: `Home | ${global.siteTitle}`, loginName: global.loginUser.username});
+        res.render("home",{isLogin: global.isLogin, Title: `Home | ${global.siteTitle}`, loginName: global.loginUserName});
 
         console.log('[server.js] File: '+__dirname+'/home.ejs')
         console.log(`[server.js] Respond status code: ${res.statusCode}`);
@@ -87,7 +87,7 @@ console.log("---------------------------------------------------------------");
 
     //Signin page '/signin'
     app.get('/login', function (req, res) {
-        res.render("signin",{Title: `Signin | ${global.siteTitle}`, Message: ``});
+        res.render("signin",{Title: `Signin | ${global.siteTitle}`, loginName: global.loginUserName, Message: ``});
 
         console.log('[server.js] File: '+__dirname+'/signin.ejs')
         console.log(`[server.js] Respond status code: ${res.statusCode}`);
@@ -99,7 +99,7 @@ console.log("---------------------------------------------------------------");
 
     //Register page '/register'
     app.get('/register', function (req, res) {
-        res.render("signup",{Title: `Register | ${global.siteTitle}`, Message: ``});
+        res.render("signup",{Title: `Register | ${global.siteTitle}`, loginName: global.loginUserName, Message: ``});
 
         console.log('[server.js] File: '+__dirname+'/signup.ejs')
         console.log(`[server.js] Respond status code: ${res.statusCode}`);
@@ -110,7 +110,27 @@ console.log("---------------------------------------------------------------");
     //For register post operations, see auth.js
 
     //Game info page '/game'
+    app.get('/game', function (req, res) {
 
+        const title = req.query.id;
+
+        try {
+            const game = Game.findOne(title);
+            if (!game) {
+                res.status(404).redirect('/err');
+            } else {
+                res.status(200).render("game",{isLogin: global.isLogin, Title: `Game | ${global.siteTitle}`, loginName: global.loginUserName, gameTitle: game.title, gameDesc: game.descroption});
+            }
+        } catch (err) {
+            res.status(400).redirect('/err');
+        }
+
+        console.log('[server.js] File: '+__dirname+'/signup.ejs')
+        console.log(`[server.js] Respond status code: ${res.statusCode}`);
+        console.log(`[server.js] Login status ${global.isLogin}`);
+        console.log("[server.js] Cookies:", req.cookies);
+        console.log("---------------------------------------------------------------");
+    });
 
 //Server listener -------------------------------------
 const PORT = 5000;

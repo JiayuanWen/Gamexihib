@@ -2,7 +2,8 @@
 let global = {
     siteTitle: "Gamexhibit",
     isLogin: false,
-    loginUser: null
+    loginUser: null,
+    loginUserName: ""
 }
 
 

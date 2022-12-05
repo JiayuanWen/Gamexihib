@@ -108,6 +108,11 @@ const User = require('../DBmodels/user.js');
                 })
                 bcrypt.compare(password,user.password).then(function (result) {
                     result ?
+                        global.loginUserName = global.loginUser.username
+                        : global.loginUserName = ""
+                })
+                bcrypt.compare(password,user.password).then(function (result) {
+                    result ?
                     res.status(200).redirect('/')
                     : res.status(401).render("signin",{Title: `Signin | ${global.siteTitle}`, Message: `Error: Username or Password is incorrect`});
                 })
@@ -126,10 +131,23 @@ const User = require('../DBmodels/user.js');
 
     //User Logout
     exports.logout = async (req, res, next) => {
+        /*
         req.logout(function(err) {
             if (err) { return next(err); }
             res.redirect('/');
         });
+        */
+        if (global.isLogin) {
+            //console.log(req.session);
+            req.session.destroy(function (err) {
+                global.isLogin = false;
+                global.loginUser = null;
+                global.loginUserName = "";
+                res.redirect('/');
+            });
+        } else {
+            res.redirect('/');
+        }
     };
 
     //User Update
@@ -205,7 +223,7 @@ const Game = require('../DBmodels/game.js');
         const {title} = req.query.id;
 
         try {
-            const game = await Game.findOne({title});
+            const game = await Game.findOne(title);
             if (!game) {
                 /*
                 res.status(401).json({
@@ -213,7 +231,7 @@ const Game = require('../DBmodels/game.js');
                     error: "User does not exist"
                 })
                  */
-                res.status(401).render("signin",{Title: `Signin | ${siteTitle}`, Message: `Error: Username or Password is incorrect.`});
+                res.status(200).redirect('/');
             } else {
                 /*
                 res.status(200).json({
@@ -222,13 +240,16 @@ const Game = require('../DBmodels/game.js');
                 })
                 */
 
-                res.status(200).redirect('/');
+                res.status(200).render("home",{isLogin: global.isLogin, Title: `Home | ${global.siteTitle}`, loginName: global.loginUserName});
             }
         } catch (err) {
+            /*
             res.status(400).json({
                 message: "An error occured",
                 error: err.message
             })
+            */
+            res.status(400).redirect('/');
         }
 
     };
