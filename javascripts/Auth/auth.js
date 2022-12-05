@@ -1,4 +1,4 @@
-let {siteTitle,isLogin,loginUser} = require(`../../globalVar.js`);
+let {global} = require(`../../globalVar.js`);
 
 const bcrypt = require(`bcryptjs`);
 
@@ -18,7 +18,7 @@ const User = require('../DBmodels/user.js');
             /*
             return res.status(400).json({message: "Password should be 5 characters or longer."});
             */
-            return res.status(400).render("signup",{Title: `Register | ${siteTitle}`, Message: `Error: Password should be 5 characters or longer.`});
+            return res.status(400).render("signup",{Title: `Register | ${global.siteTitle}`, Message: `Error: Password should be 5 characters or longer.`});
         }
 
         bcrypt.hash(password,10).then(async (hash) => {
@@ -34,10 +34,10 @@ const User = require('../DBmodels/user.js');
                     user
                 })
                  */
-                res.status(200).render("signin",{Title: `Signin | ${siteTitle}`, Message: `Account has been successfully created, you can now login in.`})
+                res.status(200).render("signin",{Title: `Signin | ${global.siteTitle}`, Message: `Account has been successfully created, you can now login in.`})
                 )
                 .catch((err) =>
-                    res.status(401).render("signup",{Title: `Register | ${siteTitle}`, Message: err.message})
+                    res.status(401).render("signup",{Title: `Register | ${global.siteTitle}`, Message: err.message})
                 )
         })
         /*
@@ -88,7 +88,7 @@ const User = require('../DBmodels/user.js');
                     error: "User does not exist"
                 })
                  */
-                res.status(401).render("signin",{Title: `Signin | ${siteTitle}`, Message: `Error: User does not exist`});
+                res.status(401).render("signin",{Title: `Signin | ${global.siteTitle}`, Message: `Error: User does not exist`});
             } else {
                 /*
                 res.status(200).json({
@@ -98,8 +98,18 @@ const User = require('../DBmodels/user.js');
                 */
                 bcrypt.compare(password,user.password).then(function (result) {
                     result ?
+                        global.isLogin = true
+                        : global.isLogin = false
+                })
+                bcrypt.compare(password,user.password).then(function (result) {
+                    result ?
+                        global.loginUser = user
+                        : global.loginUser = null;
+                })
+                bcrypt.compare(password,user.password).then(function (result) {
+                    result ?
                     res.status(200).redirect('/')
-                    : res.status(401).render("signin",{Title: `Signin | ${siteTitle}`, Message: `Error: Username or Password is incorrect`});
+                    : res.status(401).render("signin",{Title: `Signin | ${global.siteTitle}`, Message: `Error: Username or Password is incorrect`});
                 })
 
             }
@@ -110,7 +120,7 @@ const User = require('../DBmodels/user.js');
                 error: err.message
             })
             */
-            res.status(401).render("signin",{Title: `Signin | ${siteTitle}`, Message: err.message});
+            res.status(401).render("signin",{Title: `Signin | ${global.siteTitle}`, Message: err.message});
         }
     };
 
@@ -211,7 +221,7 @@ const Game = require('../DBmodels/game.js');
                     user
                 })
                 */
-                isLogin = true;
+
                 res.status(200).redirect('/');
             }
         } catch (err) {

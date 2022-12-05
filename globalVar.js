@@ -1,8 +1,9 @@
 //Global variables
-var siteTitle = "Gamexhibit";
+let global = {
+    siteTitle: "Gamexhibit",
+    isLogin: false,
+    loginUser: null
+}
 
-var isLogin = false;
-var loginUser = null;
 
-
-module.exports = {siteTitle,isLogin,loginUser};
+module.exports = {global};

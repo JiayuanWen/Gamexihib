@@ -6,25 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="85a0be77-0bb1-4b09-bdb2-bcafa9f2ac6b" name="Default Changelist" comment="modify sign in page and create series of game page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/globalVar.js" beforeDir="false" afterPath="$PROJECT_DIR$/globalVar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javascripts/Auth/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascripts/Auth/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/passport/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/passport/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/passport/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/passport/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/passport/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/passport/lib/authenticator.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/passport/lib/authenticator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/passport/lib/framework/connect.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/passport/lib/framework/connect.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/passport/lib/http/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/passport/lib/http/request.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/passport/lib/middleware/authenticate.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/passport/lib/middleware/authenticate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/passport/lib/middleware/initialize.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/passport/lib/middleware/initialize.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/passport/lib/sessionmanager.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/passport/lib/sessionmanager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/passport/lib/strategies/session.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/passport/lib/strategies/session.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/passport/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/passport/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/passport/sponsors/loginradius.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/passport/sponsors/snyk.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/passport/sponsors/workos.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sessions/3cf1da77-ee12-41d6-9790-561501b1cc0f.json" beforeDir="false" afterPath="$PROJECT_DIR$/sessions/3cf1da77-ee12-41d6-9790-561501b1cc0f.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/common/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/common/header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/home.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/home.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,20 +130,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/yuan/SeaGate4TB/Coding projects/Websites/Gamexihib/views&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/yuan/SeaGate4TB/Coding projects/Websites/Gamexihib/common",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/common" />
       <recent name="$PROJECT_DIR$/views" />
       <recent name="$PROJECT_DIR$/style" />
       <recent name="X:\SWENG 465\Gamexihib" />
@@ -217,7 +205,7 @@
       <workItem from="1669833471005" duration="2166000" />
       <workItem from="1669962994319" duration="16274000" />
       <workItem from="1670185705343" duration="7968000" />
-      <workItem from="1670209104685" duration="10558000" />
+      <workItem from="1670209104685" duration="14219000" />
     </task>
     <servers />
   </component>
@@ -288,6 +276,18 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="modify sign in page and create series of game page" />
     <option name="LAST_COMMIT_MESSAGE" value="modify sign in page and create series of game page" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/javascripts/Auth/auth.js</url>
+          <line>128</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">

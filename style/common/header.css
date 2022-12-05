@@ -136,3 +136,46 @@ header > div {
 
     cursor:pointer;
 }
+
+#sign-out {
+    float: right;
+
+    padding-top: 8px;
+    padding-right: 15px;
+}
+#sign-out > button {
+    background-color: rgb(48, 47, 47);
+
+    border-radius: 5px;
+    border-style: solid;
+    border-color: rgb(255,255,255);
+
+    min-width: 80px;
+    min-height: 40px;
+
+    color: white;
+
+    font-size: medium;
+    font-family: Sans-serif;
+    font-weight: bold;
+
+    cursor:pointer;
+}
+#sign-out > button:hover {
+    background-color: rgb(48, 47, 47);
+
+    border-radius: 5px;
+    border-style: solid;
+    border-color: rgb(64, 152, 253);
+
+    min-width: 80px;
+    min-height: 40px;
+
+    color: rgb(64, 152, 253);
+
+    font-size: medium;
+    font-family: Sans-serif;
+    font-weight: bold;
+
+    cursor:pointer;
+}

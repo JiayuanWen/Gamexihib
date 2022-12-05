@@ -1,4 +1,8 @@
-<%- include('../common/header.ejs'); %>
+<% if(!isLogin){ %>
+    <%- include('../common/headerLogOut.ejs'); %>
+<% } else{ %>
+    <%- include('../common/headerLogIn.ejs'); %>
+<% } %>
 
 <link type="text/css" href="../style/home.css" rel="stylesheet">
 

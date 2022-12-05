@@ -1,5 +1,5 @@
 //Global variables
-let {siteTitle,isLogin} = require(`./globalVar.js`);
+let {global} = require(`./globalVar.js`);
 
 //Essential modules
 var express = require('express');
@@ -62,15 +62,13 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser(function(id, done) {
     User.findById(id, function(err, user) {
         loggedInUser = user;
-
-        isLogin = true;
         done(err, user);
     });
 });
 
 //*/
 
-//Log separator
+//Console Log separator
 console.log("---------------------------------------------------------------");
 
 
@@ -78,20 +76,22 @@ console.log("---------------------------------------------------------------");
 //Web endpoints ---------------------------------------
     //Home page '/'
     app.get('/', function (req, res) {
-        res.render("home",{Title: `Home | ${siteTitle}`});
+        res.render("home",{isLogin: global.isLogin,Title: `Home | ${global.siteTitle}`});
 
         console.log('[server.js] File: '+__dirname+'/home.ejs')
-        console.log(`[server.js] Respond status code: ${res.statusCode}`);;
+        console.log(`[server.js] Respond status code: ${res.statusCode}`);
+        console.log(`[server.js] Login status ${global.isLogin}`);
         console.log("[server.js] Cookies:", req.cookies);
         console.log("---------------------------------------------------------------");
     });
 
     //Signin page '/signin'
     app.get('/login', function (req, res) {
-        res.render("signin",{Title: `Signin | ${siteTitle}`, Message: ``});
+        res.render("signin",{Title: `Signin | ${global.siteTitle}`, Message: ``});
 
         console.log('[server.js] File: '+__dirname+'/signin.ejs')
         console.log(`[server.js] Respond status code: ${res.statusCode}`);
+        console.log(`[server.js] Login status ${global.isLogin}`);
         console.log("[server.js] Cookies:", req.cookies);
         console.log("---------------------------------------------------------------");
     });
@@ -99,14 +99,15 @@ console.log("---------------------------------------------------------------");
 
     //Register page '/register'
     app.get('/register', function (req, res) {
-        res.render("signup",{Title: `Register | ${siteTitle}`, Message: ``});
+        res.render("signup",{Title: `Register | ${global.siteTitle}`, Message: ``});
 
         console.log('[server.js] File: '+__dirname+'/signup.ejs')
         console.log(`[server.js] Respond status code: ${res.statusCode}`);
+        console.log(`[server.js] Login status ${global.isLogin}`);
         console.log("[server.js] Cookies:", req.cookies);
         console.log("---------------------------------------------------------------");
     });
-    //For signin register operations, see auth.js
+    //For register post operations, see auth.js
 
     //Game info page '/game'
 
