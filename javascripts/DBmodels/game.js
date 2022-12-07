@@ -1,8 +1,13 @@
 const mongoose = require('mongoose');
 
 const gameSchema = mongoose.Schema({
+    cover_image: {
+        type: String,
+        required: true
+    },
     title: {
         type: String,
+        unique: true,
         required: true
     },
     year_release: {
@@ -17,7 +22,7 @@ const gameSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    ageRating: {
+    age_rating: {
         type: Number,
         required: true
     },

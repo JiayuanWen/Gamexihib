@@ -9,13 +9,7 @@ body {
 h1 {
     font-family: Sans-serif;
     font-weight: bold;
-    display: flex;
-}
-
-.page-content {
-    margin-top: 70px;
-    margin-left: 150px;
-    margin-right: 150px;
+    text-align: center;
 }
 
 #text-entry-1 {
@@ -23,10 +17,13 @@ h1 {
     font-weight: normal;
     font-size: 19px;
 
-    display: flex;
+
 }
 
-
+#error-msg {
+    text-align: center;
+    margin-bottom: 80vh;
+}
 
 .dropdown {
     float: left;
@@ -97,10 +94,9 @@ h1 {
 }
 
 .container {
-    display: flex;
+    display: block;
     align-items: center;
-    justify-content: left;
-    padding-left: 150px;
+    justify-content: center
 }
 img {
     max-width: 100%

@@ -50,7 +50,7 @@ app.use(session({
         return uuid() // use UUIDs for session IDs
     },
     store: new fileStore(),
-    secret: `any key is fine`,
+    secret: `waht secret`,
     resave: false,
     saveUninitialized: true
 }))
@@ -110,26 +110,18 @@ console.log("---------------------------------------------------------------");
     //For register post operations, see auth.js
 
     //Game info page '/game'
-    app.get('/game', function (req, res) {
-
-        const title = req.query.id;
-
-        try {
-            const game = Game.findOne(title);
-            if (!game) {
-                res.status(404).redirect('/err');
-            } else {
-                res.status(200).render("game",{isLogin: global.isLogin, Title: `Game | ${global.siteTitle}`, loginName: global.loginUserName, gameTitle: game.title, gameDesc: game.descroption});
-            }
-        } catch (err) {
-            res.status(400).redirect('/err');
-        }
-
+    app.get('/game', async function (req, res) {
+        //See auth.js for implementation
         console.log('[server.js] File: '+__dirname+'/signup.ejs')
         console.log(`[server.js] Respond status code: ${res.statusCode}`);
         console.log(`[server.js] Login status ${global.isLogin}`);
         console.log("[server.js] Cookies:", req.cookies);
         console.log("---------------------------------------------------------------");
+    });
+
+    //Error endpoint
+    app.get('/err', function (req, res) {
+       res.render("err",{isLogin: global.isLogin, Title: `Error | ${global.siteTitle}`, loginName: global.loginUserName, errorCode: res.statusCode, errorMessage: res.error})
     });
 
 //Server listener -------------------------------------

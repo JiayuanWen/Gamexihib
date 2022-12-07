@@ -1,0 +1,16 @@
+<% if(!isLogin){ %>
+    <%- include('../common/headerLogOut.ejs'); %>
+<% } else{ %>
+    <%- include('../common/headerLogIn.ejs'); %>
+<% } %>
+
+<link type="text/css" href="../style/error.css" rel="stylesheet">
+
+<div class="container">
+
+        <h1 id="error-code"><%= errorCode %></h1>
+        <p id="error-msg"><%= errorMessage %></p>
+
+</div>
+
+<%- include('../common/footer.ejs'); %>

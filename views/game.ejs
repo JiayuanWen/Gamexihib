@@ -1,15 +1,20 @@
-<%- include('../common/header.ejs'); %>
+<% if(!isLogin){ %>
+    <%- include('../common/headerLogOut.ejs'); %>
+<% } else{ %>
+    <%- include('../common/headerLogIn.ejs'); %>
+<% } %>
 
 <link type="text/css" href="../style/game.css" rel="stylesheet">
 
 <div class="container">
-    <div class="image">
-        <img src="https://www.nintendo.com/sg/switch/aaab/img/product.png"/>
+    <div id="cover-image">
+        <img alt="game cover" src=<%= gameCoverSrc %>/>
     </div>
 
-    <div>
+    <div id="game-info">
         <h1><%= gameTitle %></h1>
         <p><%= gameDesc %></p>
+    </div>
         <!--<p>check box choose the series features of game and </p>-->
 
         <!--
@@ -33,7 +38,7 @@
             <input type="submit" value="Submit">
         </form>
         -->
-    </div>
+
 
 
 

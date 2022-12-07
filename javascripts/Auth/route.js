@@ -10,6 +10,7 @@ const {register,login,logout,update,deleteUser} = require('./auth.js');
     router.route('/deleteAcc').delete(deleteUser);
 
 //Game
-const {} = require('./auth.js');
+const {infoGet} = require('./auth.js');
+    router.route('/game').get(infoGet)
 
 module.exports = router;

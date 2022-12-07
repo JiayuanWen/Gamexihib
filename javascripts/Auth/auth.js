@@ -15,9 +15,6 @@ const User = require('../DBmodels/user.js');
     exports.register = async (req, res, next) => {
         const {username,password, email} = req.body;
         if (password.length < 5) {
-            /*
-            return res.status(400).json({message: "Password should be 5 characters or longer."});
-            */
             return res.status(400).render("signup",{Title: `Register | ${global.siteTitle}`, Message: `Error: Password should be 5 characters or longer.`});
         }
 
@@ -28,74 +25,23 @@ const User = require('../DBmodels/user.js');
                 email
             })
                 .then(user =>
-                /*
-                res.status(200).json({
-                    message: "User successfully created",
-                    user
-                })
-                 */
                 res.status(200).render("signin",{Title: `Signin | ${global.siteTitle}`, Message: `Account has been successfully created, you can now login in.`})
                 )
                 .catch((err) =>
                     res.status(401).render("signup",{Title: `Register | ${global.siteTitle}`, Message: err.message})
                 )
         })
-        /*
-        try {
-
-            await User.create({
-                username,
-                password: hash,
-                email
-            }).then(user =>
-
-                res.status(200).json({
-                    message: "User successfully created",
-                    user
-                })
-
-                res.status(200).render("signin",{Title: `Register | ${siteTitle}`, Message: `Error: Account has been successfully created, try login in!`})
-            )
-        } catch (err) {
-
-            res.status(401).json({
-                message: "Failed to create user",
-                error: err.message
-            })
-
-            res.status(401).render("signin",{Title: `Signin | ${siteTitle}`, Message: err.message})
-        }
-        */
     };
 
     //User Login
     exports.login = async (req, res, next) => {
 
         const {username, password} = req.body;
-        /*
-        if (!username || !password) {
-            return res.status(400).json({
-                message: "Username or Password field is blank"
-            })
-        }
-        */
         try {
             const user = await User.findOne({username});
             if (!user) {
-                /*
-                res.status(401).json({
-                    message: "Login unsuccessful",
-                    error: "User does not exist"
-                })
-                 */
                 res.status(401).render("signin",{Title: `Signin | ${global.siteTitle}`, Message: `Error: User does not exist`});
             } else {
-                /*
-                res.status(200).json({
-                    message: "Login successful",
-                    user
-                })
-                */
                 bcrypt.compare(password,user.password).then(function (result) {
                     result ?
                         global.isLogin = true
@@ -119,24 +65,12 @@ const User = require('../DBmodels/user.js');
 
             }
         } catch (err) {
-            /*
-            res.status(400).json({
-                message: "An error occured",
-                error: err.message
-            })
-            */
             res.status(401).render("signin",{Title: `Signin | ${global.siteTitle}`, Message: err.message});
         }
     };
 
     //User Logout
     exports.logout = async (req, res, next) => {
-        /*
-        req.logout(function(err) {
-            if (err) { return next(err); }
-            res.redirect('/');
-        });
-        */
         if (global.isLogin) {
             //console.log(req.session);
             req.session.destroy(function (err) {
@@ -219,37 +153,38 @@ const User = require('../DBmodels/user.js');
 const Game = require('../DBmodels/game.js');
 
     //Game info get
-    exports.infoGet = async () => {
-        const {title} = req.query.id;
+    exports.infoGet = async (req,res,next) => {
+        ///*
+        const title = req.query.id;
 
         try {
-            const game = await Game.findOne(title);
+            const game = await Game.findOne({"title":title});
             if (!game) {
-                /*
-                res.status(401).json({
-                    message: "Login unsuccessful",
-                    error: "User does not exist"
-                })
-                 */
-                res.status(200).redirect('/');
+                var errorMessage = "Game not found"
+                res.status(401).render("err",
+                    {
+                        isLogin: global.isLogin,
+                        Title: `Error | ${global.siteTitle}`,
+                        loginName: global.loginUserName,
+                        errorCode: res.statusCode,
+                        errorMessage: errorMessage
+                    })
             } else {
-                /*
-                res.status(200).json({
-                    message: "Login successful",
-                    user
-                })
-                */
-
-                res.status(200).render("home",{isLogin: global.isLogin, Title: `Home | ${global.siteTitle}`, loginName: global.loginUserName});
+                res.status(200).render("game",
+                    {
+                        isLogin:
+                        global.isLogin,
+                        Title: `Game | ${global.siteTitle}`,
+                        loginName: global.loginUserName,
+                        gameCoverSrc: game.cover_image,
+                        gameTitle: game.title,
+                        gameDesc: game.description
+                    });
             }
         } catch (err) {
-            /*
-            res.status(400).json({
-                message: "An error occured",
-                error: err.message
-            })
-            */
-            res.status(400).redirect('/');
+            res.status(400).render("err",{isLogin: global.isLogin, Title: `Error | ${global.siteTitle}`, loginName: global.loginUserName, errorCode: res.statusCode, errorMessage: err.message})
         }
+
+        // */
 
     };
