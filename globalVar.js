@@ -3,7 +3,8 @@ let global = {
     siteTitle: "Gamexhibit",
     isLogin: false,
     loginUser: null,
-    loginUserName: ""
+    loginUserName: "",
+    lastVisitedSite: null
 }
 
 

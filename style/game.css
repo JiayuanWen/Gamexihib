@@ -6,11 +6,22 @@ body {
     margin: 0px;
 }
 
-.container {
+#game-info-container {
     display: flex;
     align-items: center;
     justify-content: left;
     padding-left: 150px;
+    padding-top: 50px;
+}
+
+#game-rating {
+
+    align-items: center;
+    justify-content: center;
+    align-text: center;
+}
+
+#review-forum {
     padding-top: 50px;
 }
 

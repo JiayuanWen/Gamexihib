@@ -76,6 +76,7 @@ console.log("---------------------------------------------------------------");
 //Web endpoints ---------------------------------------
     //Home page '/'
     app.get('/', function (req, res) {
+        global.lastVisitedSite = req.url
         res.render("home",{isLogin: global.isLogin, Title: `Home | ${global.siteTitle}`, loginName: global.loginUserName});
 
         console.log('[server.js] File: '+__dirname+'/home.ejs')

@@ -93,14 +93,4 @@ h1 {
     background: #555;
 }
 
-.container {
-    display: block;
-    align-items: center;
-    justify-content: center
-}
-img {
-    max-width: 100%
-}
-.image {
-    flex-basis: 40%
-}
+

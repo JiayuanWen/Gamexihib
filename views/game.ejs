@@ -6,7 +6,7 @@
 
 <link type="text/css" href="../style/game.css" rel="stylesheet">
 
-<div class="container">
+<div id="game-info-container">
     <div id="cover-image">
         <img id="cover-image-src" alt="game cover" src="<%= encodeURI(gameCoverSrc) %>" width="510"/>
     </div>
@@ -20,33 +20,21 @@
         <p id="game-age-rating">Age rating: <%= gameAgeRating %></p>
         <p id="game-desc"><%= gameDesc %></p>
     </div>
-        <!--<p>check box choose the series features of game and </p>-->
-
-        <!--
-        <form action="">
-            <input type="checkbox" id="series1" name="series1" value="texture">
-            <label for="series1"> Texture</label><br>
-
-            <input type="checkbox" id="series2" name="series2" value="story">
-            <label for="series2"> Story</label><br>
-
-            <input type="checkbox" id="series3" name="series3" value="picture">
-            <label for="series3"> Picture</label><br>
-
-            <input type="checkbox" id="series4" name="series4" value="music">
-            <label for="series3"> Music</label><br>
-
-            <input type="checkbox" id="series5" name="series5" value="UI">
-            <label for="series3"> UI</label><br><br>
-
-            <textarea type="text" class="input" placeholder="Write a comment" v-model="newItem" @keyup.enter="addItem()"></textarea><br><br>
-            <input type="submit" value="Submit">
-        </form>
-        -->
-
-
-
 
 </div>
+<div id="game-rating">
+    <h2>Ratings: </h2>
+    <p>Gameplay: N/A</p>
+    <p>Graphics: N/A</p>
+    <p>Art Direction: N/A</p>
+    <p>Replay-ability: N/A</p>
+    <p>Story: N/A</p>
+</div>
+
+<% if(!isLogin){ %>
+<% } else{ %>
+    <%- include('../common/reviewForm.ejs'); %>
+<% } %>
+
 
 <%- include('../common/footer.ejs'); %>

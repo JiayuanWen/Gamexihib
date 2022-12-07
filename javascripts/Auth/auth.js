@@ -59,7 +59,7 @@ const User = require('../DBmodels/user.js');
                 })
                 bcrypt.compare(password,user.password).then(function (result) {
                     result ?
-                    res.status(200).redirect('/')
+                    res.status(200).redirect(global.lastVisitedSite)
                     : res.status(401).render("signin",{Title: `Signin | ${global.siteTitle}`, Message: `Error: Username or Password is incorrect`});
                 })
 
@@ -77,7 +77,7 @@ const User = require('../DBmodels/user.js');
                 global.isLogin = false;
                 global.loginUser = null;
                 global.loginUserName = "";
-                res.redirect('/');
+                res.redirect(global.lastVisitedSite);
             });
         } else {
             res.redirect('/');
@@ -154,6 +154,8 @@ const Game = require('../DBmodels/game.js');
 
     //Game info get
     exports.infoGet = async (req,res,next) => {
+        global.lastVisitedSite = req.url
+
         ///*
         const query_id = req.query.id;
 
