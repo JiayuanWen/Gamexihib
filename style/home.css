@@ -44,10 +44,14 @@ a {
 
 .column {
     float: top;
-    width: 33.33%;
+    width: 100%;
     padding: 10px;
     display: flex;
     align-items: center;
+    justify-content: left;
+}
+.colume > a > img {
+
 }
 
 

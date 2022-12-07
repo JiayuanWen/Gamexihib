@@ -6,10 +6,26 @@ body {
     margin: 0px;
 }
 
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding-left: 150px;
+    padding-top: 50px;
+}
+
 h1 {
     font-family: Sans-serif;
     font-weight: bold;
     display: flex;
+}
+
+#game-info {
+    padding-left: 50px;
+}
+
+#game-desc {
+    padding-top: 50px;
 }
 
 .page-content {
@@ -96,15 +112,4 @@ h1 {
     background: #555;
 }
 
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    padding-left: 150px;
-}
-img {
-    max-width: 100%
-}
-.image {
-    flex-basis: 40%
-}
+

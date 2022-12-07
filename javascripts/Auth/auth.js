@@ -155,12 +155,13 @@ const Game = require('../DBmodels/game.js');
     //Game info get
     exports.infoGet = async (req,res,next) => {
         ///*
-        const title = req.query.id;
+        const query_id = req.query.id;
+
 
         try {
-            const game = await Game.findOne({"title":title});
+            const game = await Game.findOne({"query_id":query_id});
             if (!game) {
-                var errorMessage = "Game not found"
+                var errorMessage = "Cannot find game in database."
                 res.status(401).render("err",
                     {
                         isLogin: global.isLogin,
@@ -170,6 +171,11 @@ const Game = require('../DBmodels/game.js');
                         errorMessage: errorMessage
                     })
             } else {
+                //Convert month int to word.
+                var months = [ "January", "February", "March", "April", "May", "June",
+                    "July", "August", "September", "October", "November", "December" ];
+                var monthRelease = months[game.month_release-1];
+
                 res.status(200).render("game",
                     {
                         isLogin:
@@ -178,11 +184,24 @@ const Game = require('../DBmodels/game.js');
                         loginName: global.loginUserName,
                         gameCoverSrc: game.cover_image,
                         gameTitle: game.title,
+                        gameDev: game.developer,
+                        gameReleaseMonth: months[game.month_release-1],
+                        gameReleaseYear: game.year_release,
+                        gameGenre: game.genre,
+                        gameModes: game.play_mode,
+                        gameAgeRating: game.age_rating,
                         gameDesc: game.description
                     });
             }
         } catch (err) {
-            res.status(400).render("err",{isLogin: global.isLogin, Title: `Error | ${global.siteTitle}`, loginName: global.loginUserName, errorCode: res.statusCode, errorMessage: err.message})
+            res.status(400).render("err",
+                {
+                    isLogin: global.isLogin,
+                    Title: `Error | ${global.siteTitle}`,
+                    loginName: global.loginUserName,
+                    errorCode: res.statusCode,
+                    errorMessage: err.message
+                })
         }
 
         // */

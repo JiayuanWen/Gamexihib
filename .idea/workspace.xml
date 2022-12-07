@@ -7,11 +7,13 @@
     <list default="true" id="85a0be77-0bb1-4b09-bdb2-bcafa9f2ac6b" name="Default Changelist" comment="modify sign in page and create series of game page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javascripts/Auth/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascripts/Auth/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javascripts/Auth/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascripts/Auth/route.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javascripts/DBmodels/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascripts/DBmodels/game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sessions/944345c4-8976-4081-8cf1-f878ce052531.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sessions/b5edd8ed-e593-4940-8fa7-57b483c9dafb.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/style/game.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/game.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/home.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/game.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/game.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/home.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/home.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,7 +226,7 @@
       <workItem from="1669962994319" duration="16274000" />
       <workItem from="1670185705343" duration="7968000" />
       <workItem from="1670209104685" duration="14219000" />
-      <workItem from="1670390560561" duration="6376000" />
+      <workItem from="1670390560561" duration="11376000" />
     </task>
     <servers />
   </component>

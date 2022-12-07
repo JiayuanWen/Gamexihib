@@ -5,12 +5,24 @@ const gameSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    title: {
+    query_id: {
         type: String,
         unique: true,
         required: true
     },
+    title: {
+        type: String,
+        required: true
+    },
+    developer: {
+        type: String,
+        required: true
+    },
     year_release: {
+        type: Number,
+        required: true
+    },
+    month_release: {
         type: Number,
         required: true
     },
@@ -23,11 +35,15 @@ const gameSchema = mongoose.Schema({
         required: true
     },
     age_rating: {
-        type: Number,
+        type: String,
         required: true
     },
     mtx: {
        type: Boolean,
+        required: true
+    },
+    play_mode: {
+        type: String,
         required: true
     }
 });

@@ -8,12 +8,17 @@
 
 <div class="container">
     <div id="cover-image">
-        <img alt="game cover" src=<%= gameCoverSrc %>/>
+        <img id="cover-image-src" alt="game cover" src="<%= encodeURI(gameCoverSrc) %>" width="510"/>
     </div>
 
     <div id="game-info">
-        <h1><%= gameTitle %></h1>
-        <p><%= gameDesc %></p>
+        <h1 id="game-title"><%= gameTitle %></h1>
+        <p id="game-release">Released: <%= gameReleaseMonth %>, <%= gameReleaseYear %></p>
+        <p id="game-dev">Developer: <%= gameDev %></p>
+        <p id="game-genre">Genre: <%= gameGenre %></p>
+        <p id="game-mode">Modes: <%= gameModes %></p>
+        <p id="game-age-rating">Age rating: <%= gameAgeRating %></p>
+        <p id="game-desc"><%= gameDesc %></p>
     </div>
         <!--<p>check box choose the series features of game and </p>-->
 
