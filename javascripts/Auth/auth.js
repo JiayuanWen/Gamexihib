@@ -13,7 +13,7 @@ const User = require('../DBmodels/user.js');
 
     //User Register
     exports.register = async (req, res, next) => {
-        const {username,password, email} = req.body;
+        const {username,password,email} = req.body;
         if (password.length < 5) {
             return res.status(400).render("signup",{Title: `Register | ${global.siteTitle}`, Message: `Error: Password should be 5 characters or longer.`});
         }
@@ -25,7 +25,7 @@ const User = require('../DBmodels/user.js');
                 email
             })
                 .then(user =>
-                res.status(200).render("signin",{Title: `Signin | ${global.siteTitle}`, Message: `Account has been successfully created, you can now login in.`})
+                res.status(200).render("signup",{Title: `Register | ${global.siteTitle}`, Message: `Account has been successfully created, you can now go back to login.`})
                 )
                 .catch((err) =>
                     res.status(401).render("signup",{Title: `Register | ${global.siteTitle}`, Message: err.message})
@@ -42,6 +42,9 @@ const User = require('../DBmodels/user.js');
             if (!user) {
                 res.status(401).render("signin",{Title: `Signin | ${global.siteTitle}`, Message: `Error: User does not exist`});
             } else {
+                if (password.length < 5) {
+                    return res.status(400).render("signin",{Title: `Signin | ${global.siteTitle}`, Message: `Error: Password should be 5 characters or longer.`});
+                }
                 bcrypt.compare(password,user.password).then(function (result) {
                     result ?
                         global.isLogin = true
@@ -80,7 +83,7 @@ const User = require('../DBmodels/user.js');
                 res.redirect(global.lastVisitedSite);
             });
         } else {
-            res.redirect('/');
+            res.redirect(global.lastVisitedSite);
         }
     };
 

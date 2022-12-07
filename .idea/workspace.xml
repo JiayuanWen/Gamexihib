@@ -6,14 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="85a0be77-0bb1-4b09-bdb2-bcafa9f2ac6b" name="Default Changelist" comment="modify sign in page and create series of game page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/globalVar.js" beforeDir="false" afterPath="$PROJECT_DIR$/globalVar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javascripts/Auth/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascripts/Auth/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sessions/750dd6b0-c237-46d9-9dfe-08e243e18733.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/style/error.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/error.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style/game.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/game.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/game.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/game.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sessions/37a486c1-919a-4075-b9dd-153113fc4265.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/signup.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/signup.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,7 +221,7 @@
       <workItem from="1669962994319" duration="16274000" />
       <workItem from="1670185705343" duration="7968000" />
       <workItem from="1670209104685" duration="14219000" />
-      <workItem from="1670390560561" duration="14303000" />
+      <workItem from="1670390560561" duration="18127000" />
     </task>
     <servers />
   </component>
@@ -297,6 +292,18 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="modify sign in page and create series of game page" />
     <option name="LAST_COMMIT_MESSAGE" value="modify sign in page and create series of game page" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/javascripts/Auth/auth.js</url>
+          <line>64</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
