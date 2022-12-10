@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85a0be77-0bb1-4b09-bdb2-bcafa9f2ac6b" name="Default Changelist" comment="modify sign in page and create series of game page" />
+    <list default="true" id="85a0be77-0bb1-4b09-bdb2-bcafa9f2ac6b" name="Default Changelist" comment="modify sign in page and create series of game page">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/headerLogIn.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/common/headerLogIn.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/reviewForm.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/common/reviewForm.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/globalVar.js" beforeDir="false" afterPath="$PROJECT_DIR$/globalVar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javascripts/Auth/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascripts/Auth/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javascripts/Auth/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascripts/route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javascripts/DBmodels/review.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascripts/DBmodels/review.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javascripts/DBmodels/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascripts/DBmodels/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/common/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/common/header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/game.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/game.ejs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -217,6 +229,7 @@
       <workItem from="1670185705343" duration="7968000" />
       <workItem from="1670209104685" duration="14219000" />
       <workItem from="1670390560561" duration="18758000" />
+      <workItem from="1670613221600" duration="24690000" />
     </task>
     <servers />
   </component>
@@ -287,18 +300,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="modify sign in page and create series of game page" />
     <option name="LAST_COMMIT_MESSAGE" value="modify sign in page and create series of game page" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/javascripts/Auth/auth.js</url>
-          <line>64</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">

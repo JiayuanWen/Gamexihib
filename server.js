@@ -17,6 +17,8 @@ var passport = require(`passport`);
 const { v4: uuid } = require('uuid'); uuid(); //const uuid = require(`uuid/v4`);
 var LocalStrategy = require('passport-local').Strategy;
 
+const User = require('./javascripts/DBmodels/user.js');
+
 console.log(`[server.js] Connecting to server...`);
 
 //Express setup ---------------------------------------
@@ -43,17 +45,18 @@ connectDB();
 ///*
 //Credit: Arjun K S, Medium.com
 //https://medium.com/swlh/building-a-simple-web-application-with-node-express-mongodb-dcd53231e83c
-app.use(passport.initialize());
-app.use(passport.session());
 app.use(session({
     genid: (req) => {
         return uuid() // use UUIDs for session IDs
     },
     store: new fileStore(),
-    secret: `waht secret`,
+    secret: `what secret`,
     resave: false,
     saveUninitialized: true
 }))
+app.use(passport.initialize());
+app.use(passport.session());
+///*
 passport.serializeUser((user, done) => {
     done(null, user.id);
 });
@@ -66,7 +69,7 @@ passport.deserializeUser(function(id, done) {
 //*/
 
 //User Authentication middleware ----------------------
-app.use("/",require("./javascripts/Auth/route"));
+app.use("/",require("./javascripts/route"));
 
 //Console Log separator
 console.log("---------------------------------------------------------------");
@@ -76,23 +79,29 @@ console.log("---------------------------------------------------------------");
 //Web endpoints ---------------------------------------
     //Home page '/'
     app.get('/', function (req, res) {
-        global.lastVisitedSite = req.url
-        res.render("home",{isLogin: global.isLogin, Title: `Home | ${global.siteTitle}`, loginName: global.loginUserName});
+        req.session.recentUrl = req.url;
 
-        console.log('[server.js] File: '+__dirname+'/home.ejs')
+        if (req.isAuthenticated()) {
+            res.render("home",{isLogin: req.isAuthenticated(), Title: `Home | ${global.siteTitle}`, loginName: req.user.username});
+        } else {
+            res.render("home",{isLogin: req.isAuthenticated(), Title: `Home | ${global.siteTitle}`});
+        }
+
+
+        console.log('[server.js] URL: '+req.url)
         console.log(`[server.js] Respond status code: ${res.statusCode}`);
-        console.log(`[server.js] Login status ${global.isLogin}`);
+        console.log(`[server.js] Login status: ${req.isAuthenticated()}`);
         console.log("[server.js] Cookies:", req.cookies);
         console.log("---------------------------------------------------------------");
     });
 
     //Signin page '/signin'
     app.get('/login', function (req, res) {
-        res.render("signin",{Title: `Signin | ${global.siteTitle}`, loginName: global.loginUserName, Message: ``});
+        res.render("signin",{Title: `Signin | ${global.siteTitle}`, Message: ``});
 
-        console.log('[server.js] File: '+__dirname+'/signin.ejs')
+        console.log('[server.js] URL: '+req.url)
         console.log(`[server.js] Respond status code: ${res.statusCode}`);
-        console.log(`[server.js] Login status ${global.isLogin}`);
+        console.log(`[server.js] Login status: ${req.isAuthenticated()}`);
         console.log("[server.js] Cookies:", req.cookies);
         console.log("---------------------------------------------------------------");
     });
@@ -100,11 +109,11 @@ console.log("---------------------------------------------------------------");
 
     //Register page '/register'
     app.get('/register', function (req, res) {
-        res.render("signup",{Title: `Register | ${global.siteTitle}`, loginName: global.loginUserName, Message: ``});
+        res.render("signup",{Title: `Register | ${global.siteTitle}`, Message: ``});
 
-        console.log('[server.js] File: '+__dirname+'/signup.ejs')
+        console.log('[server.js] URL: '+req.url)
         console.log(`[server.js] Respond status code: ${res.statusCode}`);
-        console.log(`[server.js] Login status ${global.isLogin}`);
+        console.log(`[server.js] Login status: ${req.isAuthenticated()}`);
         console.log("[server.js] Cookies:", req.cookies);
         console.log("---------------------------------------------------------------");
     });
@@ -113,16 +122,61 @@ console.log("---------------------------------------------------------------");
     //Game info page '/game'
     app.get('/game', async function (req, res) {
         //See auth.js for implementation
-        console.log('[server.js] File: '+__dirname+'/signup.ejs')
+        console.log('[server.js] URL: '+req.url)
         console.log(`[server.js] Respond status code: ${res.statusCode}`);
-        console.log(`[server.js] Login status ${global.isLogin}`);
+        console.log(`[server.js] Login status ${req.isAuthenticated()}`);
         console.log("[server.js] Cookies:", req.cookies);
         console.log("---------------------------------------------------------------");
     });
 
+    //User profile page '/profile'
+    app.get('/profile', function (req, res) {
+        console.log('[server.js] URL: '+req.url)
+        console.log(`[server.js] Respond status code: ${res.statusCode}`);
+        console.log(`[server.js] Login status ${req.isAuthenticated()}`);
+        console.log("[server.js] Cookies:", req.cookies);
+        console.log("---------------------------------------------------------------");
+
+        if (!req.isAuthenticated()) {
+            return res.redirect('/login');
+        } else {
+            return res.render("profile",{
+                Title: `${req.user.username}'s Profile | ${global.siteTitle}`,
+                isLogin: req.isAuthenticated(),
+                loginName: `${req.user.username}`,
+                userName: `${req.user.username}`
+            });
+        }
+
+
+    });
+
+
     //Error endpoint
     app.get('/err', function (req, res) {
-       res.render("err",{isLogin: global.isLogin, Title: `Error | ${global.siteTitle}`, loginName: global.loginUserName, errorCode: res.statusCode, errorMessage: res.error})
+        console.log('[server.js] URL: '+req.url)
+        console.log(`[server.js] Respond status code: ${res.statusCode}`);
+        console.log(`[server.js] Login status ${req.isAuthenticated()}`);
+        console.log("[server.js] Cookies:", req.cookies);
+        console.log("---------------------------------------------------------------");
+
+        if (req.isAuthenticated()) {
+            res.render("err",{
+                isLogin: req.isAuthenticated(),
+                Title: `Error | ${global.siteTitle}`,
+                loginName: req.user.username,
+                errorCode: res.statusCode,
+                errorMessage: res.error
+            })
+        } else {
+            res.render("err",{
+                isLogin: req.isAuthenticated(),
+                Title: `Error | ${global.siteTitle}`,
+                errorCode: res.statusCode,
+                errorMessage: res.error
+            })
+        }
+
     });
 
 //Server listener -------------------------------------

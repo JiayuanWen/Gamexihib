@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const userSchema = mongoose.Schema({
     username: {
         type: String,
-        unique: true,
         required: true
     },
     password: {
@@ -13,13 +12,17 @@ const userSchema = mongoose.Schema({
     },
     email: {
         type: String,
-        unique: true,
         required: true
     },
     role: {
         type: String,
         default: "Visitor", //Roles: Moderator, Admin, Visitor, Developer
         required: true
+    },
+    mark_delete: {
+        type: Boolean,
+        required: true,
+        default: false
     }
 });
 

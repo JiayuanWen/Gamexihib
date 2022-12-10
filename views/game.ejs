@@ -24,11 +24,12 @@
 </div>
 <div id="game-rating">
     <h2>Ratings: </h2>
-    <p>Gameplay: N/A</p>
-    <p>Graphics: N/A</p>
-    <p>Art Direction: N/A</p>
-    <p>Replay-ability: N/A</p>
-    <p>Story: N/A</p>
+    <p>Gameplay: <%= gameplayScore %>/100</p>
+    <p>Graphics: <%= graphicScore %>/100</p>
+    <p>Sounds: <%= soundScore %>/100</p>
+    <p>Art Direction: <%= artScore %>/100</p>
+    <p>Replay-ability: <%= replayScore %>/100</p>
+    <p>Story: <%= storyScore %>/100</p>
 </div>
 
 <% if(!isLogin){ %>

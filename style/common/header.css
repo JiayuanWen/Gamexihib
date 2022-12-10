@@ -102,10 +102,15 @@ header > div {
     font-family: Sans-serif;
 
     padding-top: 20px;
-    padding-right: 10px;
+    padding-right: 30px;
 }
 #username-display > a {
     color: white;
+    text-decoration: none;
+}
+#username-display > a:hover {
+    color: #0099ff;
+    text-decoration: none;
 }
 
 #sign-in {

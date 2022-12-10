@@ -13,9 +13,12 @@ const User = require('../DBmodels/user.js');
 
     //User Register
     exports.register = async (req, res, next) => {
-        const {username,password,email} = req.body;
+        const {username,password,email,passwordV} = req.body;
         if (password.length < 5) {
             return res.status(400).render("signup",{Title: `Register | ${global.siteTitle}`, Message: `Error: Password should be 5 characters or longer.`});
+        }
+        if (!(password === passwordV)) {
+            return res.status(400).render("signup",{Title: `Register | ${global.siteTitle}`, Message: `Error: Password does not patch.`});
         }
 
         bcrypt.hash(password,10).then(async (hash) => {
@@ -45,24 +48,30 @@ const User = require('../DBmodels/user.js');
                 if (password.length < 5) {
                     return res.status(400).render("signin",{Title: `Signin | ${global.siteTitle}`, Message: `Error: Password should be 5 characters or longer.`});
                 }
+                if (user.mark_delete) {
+                    return res.status(401).render("signin",{Title: `Signin | ${global.siteTitle}`, Message: `Error: User does not exist`});
+                }
                 bcrypt.compare(password,user.password).then(function (result) {
                     result ?
-                        global.isLogin = true
-                        : global.isLogin = false
-                })
-                bcrypt.compare(password,user.password).then(function (result) {
-                    result ?
-                        global.loginUser = user
-                        : global.loginUser = null;
-                })
-                bcrypt.compare(password,user.password).then(function (result) {
-                    result ?
-                        global.loginUserName = global.loginUser.username
-                        : global.loginUserName = ""
-                })
-                bcrypt.compare(password,user.password).then(function (result) {
-                    result ?
-                    res.status(200).redirect(global.lastVisitedSite)
+                    req.login(user, function(err) {
+                        if (err) {return next(err)}
+
+                        passport.serializeUser((user, done) => {
+                            done(null, user.id);
+                        });
+                        passport.deserializeUser(function(id, done) {
+                            User.findById(id, function(err, user) {
+                                loggedInUser = user;
+                                done(err, user);
+                            });
+                        });
+
+                        console.log(`[auth.js] Login status: ${req.isAuthenticated()}`);
+                        console.log(`[auth.js] Login username: ${req.user.username}`);
+                        req.session.save(() => {
+                            return res.redirect('/');
+                        })
+                    })
                     : res.status(401).render("signin",{Title: `Signin | ${global.siteTitle}`, Message: `Error: Username or Password is incorrect`});
                 })
 
@@ -74,16 +83,14 @@ const User = require('../DBmodels/user.js');
 
     //User Logout
     exports.logout = async (req, res, next) => {
-        if (global.isLogin) {
+        if (req.isAuthenticated()) {
             //console.log(req.session);
             req.session.destroy(function (err) {
-                global.isLogin = false;
-                global.loginUser = null;
-                global.loginUserName = "";
-                res.redirect(global.lastVisitedSite);
+
+                return res.redirect(`/`);
             });
         } else {
-            res.redirect(global.lastVisitedSite);
+                return res.redirect(`/`);
         }
     };
 
@@ -134,7 +141,56 @@ const User = require('../DBmodels/user.js');
     };
 
     //User Delete
-    exports.deleteUser = async (req,res,next) => {
+    exports.deleteUser = async (req, res, next) => {
+        const {id} = req.user;
+        await User.findById(id)
+            .then((user) => {
+                if (!user) {
+                    console.log(`[auth.js] Error: User not found`)
+                    req.session.save(() => {
+                        return res.redirect('/');
+                    })
+                } else {
+                    user.mark_delete = true;
+                    user.save((err) => {
+                        if (err) {
+                            console.log(`[auth.js] Error: ${err}`)
+                            if (req.isAuthenticated()) {
+                                res.status(400).render("err",{
+                                    isLogin: req.isAuthenticated(),
+                                    Title: `Error | ${global.siteTitle}`,
+                                    loginName: req.user.username,
+                                    errorCode: res.statusCode,
+                                    errorMessage: err
+                                })
+                            } else {
+                                res.status(400).render("err",{
+                                    isLogin: req.isAuthenticated(),
+                                    Title: `Error | ${global.siteTitle}`,
+                                    errorCode: res.statusCode,
+                                    errorMessage: err
+                                })
+                            }
+                            //process.exit(1);
+                        }
+                        console.log(`[auth.js] User marked for deletion`)
+                        if (req.isAuthenticated()) {
+                            //console.log(req.session);
+                            req.session.destroy(function (err) {
+
+                                return res.status(201).redirect(`/`);
+                            });
+                        } else {
+                            return res.status(201).redirect(`/`);
+                        }
+
+                    })
+                }
+            })
+    };
+
+    //User Delete (Absolute)
+    exports.deleteUserAbs = async (req,res,next) => {
         const {id} = req.body;
         await User.findById(id)
             .then(user => user.remove())
@@ -152,63 +208,3 @@ const User = require('../DBmodels/user.js');
             )
     };
 
-//Game page
-const Game = require('../DBmodels/game.js');
-
-    //Game info get
-    exports.infoGet = async (req,res,next) => {
-        global.lastVisitedSite = req.url
-
-        ///*
-        const query_id = req.query.id;
-
-
-        try {
-            const game = await Game.findOne({"query_id":query_id});
-            if (!game) {
-                var errorMessage = "Cannot find game in database."
-                res.status(401).render("err",
-                    {
-                        isLogin: global.isLogin,
-                        Title: `Error | ${global.siteTitle}`,
-                        loginName: global.loginUserName,
-                        errorCode: res.statusCode,
-                        errorMessage: errorMessage
-                    })
-            } else {
-                //Convert month int to word.
-                var months = [ "January", "February", "March", "April", "May", "June",
-                    "July", "August", "September", "October", "November", "December" ];
-                var monthRelease = months[game.month_release-1];
-
-                res.status(200).render("game",
-                    {
-                        isLogin:
-                        global.isLogin,
-                        Title: `Game | ${global.siteTitle}`,
-                        loginName: global.loginUserName,
-                        gameCoverSrc: game.cover_image,
-                        gameTitle: game.title,
-                        gameDev: game.developer,
-                        gameReleaseMonth: months[game.month_release-1],
-                        gameReleaseYear: game.year_release,
-                        gameGenre: game.genre,
-                        gameModes: game.play_mode,
-                        gameAgeRating: game.age_rating,
-                        gameDesc: game.description
-                    });
-            }
-        } catch (err) {
-            res.status(400).render("err",
-                {
-                    isLogin: global.isLogin,
-                    Title: `Error | ${global.siteTitle}`,
-                    loginName: global.loginUserName,
-                    errorCode: res.statusCode,
-                    errorMessage: err.message
-                })
-        }
-
-        // */
-
-    };

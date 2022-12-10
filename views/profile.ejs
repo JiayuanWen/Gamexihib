@@ -1,0 +1,27 @@
+<% if(!isLogin){ %>
+    <%- include('../common/headerLogOut.ejs'); %>
+<% } else{ %>
+    <%- include('../common/headerLogIn.ejs'); %>
+<% } %>
+
+<link type="text/css" href="../style/profile.css" rel="stylesheet">
+
+<div id="user-info-container">
+    <div id="user-info">
+        <h1 id="user-name"><%= userName %></h1>
+        <!-- <p id="user-preference">Preferred genre: <%=  %></p> -->
+    </div>
+    <div id="user-acc-management">
+        <form id="user-signout" action="/logout" method="post">
+            <button id="user-signout-button"  type="submit">Sign Out</button>
+        </form>
+
+        <form id="user-delete" action="/delete" method="post">
+            <button id="user-delete-button" type="submit">Delete</button>
+        </form>
+    </div>
+</div>
+
+
+
+<%- include('../common/footer.ejs'); %>
